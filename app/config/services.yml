@@ -1,0 +1,60 @@
+# Learn more about services, parameters and containers at
+# https://symfony.com/doc/current/service_container.html
+parameters:
+    #parameter_name: value
+
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        # automatically injects dependencies in your services
+        autowire: true
+        # automatically registers your services as commands, event subscribers, etc.
+        autoconfigure: true
+        # this means you cannot fetch services directly from the container via $container->get()
+        # if you need to do this, you can override this setting on individual services
+        public: false
+
+    # makes classes in src/AppBundle available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+
+    admin.blog:
+        class: BlogBundle\Admin\BlogAdmin
+        arguments: [~, BlogBundle\Entity\Blog, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Contenu", label: Le blog }
+        public: true
+
+    admin.agence:
+        class: AgenceBundle\Admin\AgenceAdmin
+        arguments: [~, AgenceBundle\Entity\Agence, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Contenu", label: Les agences }
+        public: true
+
+    admin.user:
+        class: UserBundle\Admin\UserAdmin
+        arguments: [~, UserBundle\Entity\User, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Utilisateurs", label: Tout les utilisateurs }
+        public: true
+
+    admin.tenant:
+        class: UserBundle\Admin\TenantAdmin
+        arguments: [~, UserBundle\Entity\Tenant, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Utilisateurs", label: Les locataires }
+        public: true
+
+    admin.investor:
+        class: UserBundle\Admin\InvestorAdmin
+        arguments: [~, UserBundle\Entity\Investor, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Utilisateurs", label: Les investisseurs }
+        public: true
+
+    admin.projet:
+        class: ProjetBundle\Admin\ProjetAdmin
+        arguments: [~, ProjetBundle\Entity\Projet, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Gestion", label: Les projets }
+        public: true

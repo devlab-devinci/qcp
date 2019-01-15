@@ -1,0 +1,26 @@
+AgenceBundle\Entity\Agence:
+    type: entity
+    table: null
+    repositoryClass: AgenceBundle\Repository\AgenceRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        description:
+            type: text
+        thumbnail:
+            type: string
+            length: 255
+        location:
+            type: text
+        address:
+            type: text
+        site:
+            type: text
+    lifecycleCallbacks: {  }

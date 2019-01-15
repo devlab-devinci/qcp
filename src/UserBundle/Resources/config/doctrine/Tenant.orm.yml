@@ -1,0 +1,32 @@
+UserBundle\Entity\Tenant:
+    type: entity
+    table: null
+    repositoryClass: UserBundle\Repository\TenantRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        statusTenant:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }
+
+    oneToOne:
+        user:
+            targetEntity: UserBundle\Entity\User
+            mappedBy: tenant
+            fetch: EAGER
+            cascade: ["persist"]
+            joinColumn:
+                onDelete: CASCADE
+
+    manyToOne:
+        projet:
+            targetEntity: ProjetBundle\Entity\Projet
+            inversedBy: tenant
+            joinColumn:
+                name: projet_id
+                referencedColumnName: id

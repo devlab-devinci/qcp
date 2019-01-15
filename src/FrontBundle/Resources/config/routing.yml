@@ -1,0 +1,11 @@
+front_homepage:
+    path:     /
+    defaults: { _controller: FrontBundle:Default:index }
+
+front_investor_homepage:
+    path:     /investor
+    defaults: { _controller: FrontBundle:Default:investoreHome }
+
+front_tenant_homepage:
+    path:     /tenant
+    defaults: { _controller: FrontBundle:Default:tenantHome }

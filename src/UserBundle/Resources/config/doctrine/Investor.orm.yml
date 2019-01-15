@@ -1,0 +1,24 @@
+UserBundle\Entity\Investor:
+    type: entity
+    table: null
+    repositoryClass: UserBundle\Repository\InvestorRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        statusInvestor:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }
+
+    oneToOne:
+        user:
+            targetEntity: UserBundle\Entity\User
+            mappedBy: investor
+            fetch: EAGER
+            cascade: ["persist"]
+            joinColumn:
+                onDelete: CASCADE

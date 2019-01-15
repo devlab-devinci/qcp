@@ -1,0 +1,32 @@
+UserBundle\Entity\User:
+    type: entity
+    table: null
+    #repositoryClass: UserBundle\Repository\UserRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    lifecycleCallbacks: {  }
+
+    oneToOne:
+            tenant:
+              targetEntity: UserBundle\Entity\Tenant
+              inversedBy: user
+              cascade: ["persist"]
+              fetch: EAGER
+              joinColumn:
+                name: id_tenant
+                referencedColumnName: id
+                onDelete: CASCADE
+
+            investor:
+              targetEntity: UserBundle\Entity\Investor
+              inversedBy: user
+              cascade: ["persist"]
+              fetch: EAGER
+              joinColumn:
+                name: id_investor
+                referencedColumnName: id
+                onDelete: CASCADE

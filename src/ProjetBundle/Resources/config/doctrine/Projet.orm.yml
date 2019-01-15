@@ -1,0 +1,23 @@
+ProjetBundle\Entity\Projet:
+    type: entity
+    table: null
+    repositoryClass: ProjetBundle\Repository\ProjetRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        description:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }
+
+    oneToMany:
+        tenant:
+            targetEntity: UserBundle\Entity\Tenant
+            mappedBy: projet
