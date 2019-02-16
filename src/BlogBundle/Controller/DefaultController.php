@@ -10,4 +10,9 @@ class DefaultController extends Controller
     {
         return $this->render('BlogBundle:Default:index.html.twig');
     }
+
+    public function singleAction()
+    {
+        return $this->render('BlogBundle:Default:single.html.twig');
+    }
 }

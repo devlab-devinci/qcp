@@ -11,6 +11,17 @@ class DefaultController extends Controller
         return $this->render('FrontBundle:Default:index.html.twig');
     }
 
+    public function faqAction()
+    {
+        return $this->render('FrontBundle:Default:faq.html.twig');
+    }
+
+
+    public function qsnAction()
+    {
+        return $this->render('FrontBundle:Default:qsn.html.twig');
+    }
+
     public function tenantHomeAction()
     {
         return $this->render('FrontBundle:Tenant:index.html.twig');

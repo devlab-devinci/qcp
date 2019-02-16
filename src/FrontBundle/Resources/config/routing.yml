@@ -2,6 +2,14 @@ front_homepage:
     path:     /
     defaults: { _controller: FrontBundle:Default:index }
 
+front_faqpage:
+    path:     /foire-aux-questions
+    defaults: { _controller: FrontBundle:Default:faq }
+
+front_qsnpage:
+    path:     /qui-sommes-nous
+    defaults: { _controller: FrontBundle:Default:qsn }
+
 front_investor_homepage:
     path:     /investor
     defaults: { _controller: FrontBundle:Default:investoreHome }

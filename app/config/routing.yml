@@ -1,10 +1,10 @@
 projet:
     resource: "@ProjetBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /project
 
 agence:
     resource: "@AgenceBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /agency
 
 front:
     resource: "@FrontBundle/Resources/config/routing.yml"
@@ -12,11 +12,11 @@ front:
 
 blog:
     resource: "@BlogBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /blog
 
 user:
     resource: "@UserBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /user
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
