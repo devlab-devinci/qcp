@@ -10,8 +10,8 @@
 <body>
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-    <a class="navbar-brand" href="index.html">
-        <img src="img/QSP.png" alt="">
+    <a class="navbar-brand" href="{{ path('front_homepage') }}">
+        <img src="{{ asset('assets/images/QSP.png') }}" alt="">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -24,24 +24,24 @@
                     À Propos
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="actualites.html">Actualités</a>
-                    <a class="dropdown-item" href="qui-sommes-nous.html">Qui sommes-nous ?</a>
+                    <a class="dropdown-item" href="{{ path('blog_homepage') }}">Actualités</a>
+                    <a class="dropdown-item" href="{{ path('front_qsnpage') }}">Qui sommes-nous ?</a>
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="faq.html">F.A.Q.</a>
+                <a class="nav-link" href="{{ path('front_faqpage') }}">F.A.Q.</a>
             </li>
 
             <li class="nav-item none-on-high">
-                <a class="nav-link" href="inscription.html">S'inscrire</a>
+                <a class="nav-link" href="{{ path('fos_user_registration_register') }}">S'inscrire</a>
             </li>
             <li class="nav-item none-on-high">
-                <a class="nav-link" href="connexion.html">Se connecter</a>
+                <a class="nav-link" href="{{ path('fos_user_security_login') }}">Se connecter</a>
             </li>
         </ul>
         <div class="right none-on-low">
-            <a class="btn_c" href="inscription.html">S'inscrire</a>
-            <a class="btn_c" href="connexion.html">Se connecter</a>
+            <a class="btn_c" href="{{ path('fos_user_registration_register') }}">S'inscrire</a>
+            <a class="btn_c" href="{{ path('fos_user_security_login') }}">Se connecter</a>
         </div>
     </div>
 </nav>
@@ -65,7 +65,7 @@
 <!-- Footer -->
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="js/custom.js"></script>
+<script src="{{ asset('assets/js/custom.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
