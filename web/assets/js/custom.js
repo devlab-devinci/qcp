@@ -85,6 +85,7 @@ $('.click-sf').click(function (event) {
     $('#fos_user_registration_form_plainPassword_first').val(pass);
     $('#fos_user_registration_form_plainPassword_second').val(passconfirm);
     $('#fos_user_registration_form_lastname').val(lastname);
+    $('#fos_user_registration_form_firstname').val(firstname);
     $('#fos_user_registration_form_type').val(type);
 
 

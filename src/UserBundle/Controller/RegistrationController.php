@@ -29,6 +29,7 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\Session\Session;
 use UserBundle\Entity\Tenant;
+use UserBundle\Entity\Investor;
 
 /**
  * Controller managing the registration.
@@ -77,30 +78,38 @@ class RegistrationController extends Controller
         if ($form->isSubmitted()) {
             if ($form->isValid()) {
 
-                dump($_POST);
-                die;
-
                 $event = new FormEvent($form, $request);
                 $this->eventDispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
 
-                dump($user);
                 $id = $this->userManager->updateUser($user);
-                dump($id) ;
 
                 if (null === $response = $event->getResponse()) {
                     $url = $this->generateUrl('fos_user_registration_confirmed');
                     $response = new RedirectResponse($url);
                 }
 
-                // if tenant
-                /*$entityManager = $this->getDoctrine()->getManager();
-                $tenant = new Tenant();
-                $tenant->setStatusTenant(1);
-                $tenant->setProjet(NULL);
-                $entityManager->persist($tenant);
-                $entityManager->flush();
-                $user->setTenant($tenant);
-                */
+                if ($_POST['fos_user_registration_form']['type'] == 'tenant'){
+                    // if tenant
+                    /*$entityManager = $this->getDoctrine()->getManager();
+                    $tenant = new Tenant();
+                    $tenant->setStatusTenant(1);
+                    $tenant->setProjet(NULL);
+                    $entityManager->persist($tenant);
+                    $entityManager->flush();
+                    $user->setTenant($tenant);
+                    */
+                }elseif ($_POST['fos_user_registration_form']['type'] == 'investor'){
+                    // if investor
+                    $entityManager = $this->getDoctrine()->getManager();
+                    $investor = new Investor();
+                    $investor->setFirstname($_POST['fos_user_registration_form']['firstname']);
+                    $investor->setLastname($_POST['fos_user_registration_form']['lastname']);
+                    $investor->setStatusInvestor(0);
+                    $entityManager->persist($investor);
+                    $entityManager->flush();
+                    $user->setInvestor($investor);
+                }
+
 
                 $this->eventDispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
 
