@@ -82,8 +82,9 @@ fos_user:
     firewall_name: main
     user_class: UserBundle\Entity\User
     from_email:
-        address: "root@admin.com"
-        sender_name: "root"
+        address: "%mailer_user%"
+        sender_name: "%mailer_user%"
+
 
 sonata_admin:
     title: QSP - ADMIN
