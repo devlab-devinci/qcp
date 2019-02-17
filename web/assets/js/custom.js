@@ -60,3 +60,35 @@ $( ".loccard" ).on( "click", function() {
         $('.invcard').toggleClass("s-active-title");
     };
 });
+
+/**** FORM TRICKS SF ****/
+
+//send form
+$('.click-sf').click(function (event) {
+
+    //all
+    var lastname    = $('#sf-lastname').val();
+    var firstname   = $('#sf-firstname').val();
+    var date        = $('#sf-date').val();
+    var email       = $('#sf-email').val();
+    var pass        = $('#sf-pass').val();
+    var passconfirm = $('#sf-pass-confirm').val();
+    var type        = $(this).attr('id');
+
+    //investor
+
+    //tenant
+
+    //set var to sf form
+    $('#fos_user_registration_form_email').val(email);
+    $('#fos_user_registration_form_username').val(email);
+    $('#fos_user_registration_form_plainPassword_first').val(pass);
+    $('#fos_user_registration_form_plainPassword_second').val(passconfirm);
+    $('#fos_user_registration_form_lastname').val(lastname);
+    $('#fos_user_registration_form_type').val(type);
+
+
+
+    event.preventDefault();
+    $('.sf-form-send').click();
+});

@@ -12,6 +12,12 @@ UserBundle\Entity\Investor:
         statusInvestor:
             type: string
             length: 255
+        lastname:
+            type: string
+            length: 255
+        firstname:
+            type: string
+            length: 255
     lifecycleCallbacks: {  }
 
     oneToOne:

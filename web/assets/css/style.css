@@ -352,3 +352,10 @@ label{
         margin-bottom: -120px;
     }
 }
+
+/**** FORM TRICKS SF ****/
+
+.sf-form-hack{
+    opacity: 0;
+    display: none;
+}

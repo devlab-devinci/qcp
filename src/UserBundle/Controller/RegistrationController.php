@@ -28,6 +28,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\Session\Session;
+use UserBundle\Entity\Tenant;
 
 /**
  * Controller managing the registration.
@@ -57,22 +58,6 @@ class RegistrationController extends Controller
      */
     public function registerAction(Request $request)
     {
-        $session = new Session();
-        // get step and type
-        $step = $request->get('step');
-        $type = $request->get('type');
-
-        if ($request->isMethod('post') && $step == 1) {
-            $session->set('data_user', array('test' => 'test'));
-            $url = $this->generateUrl('fos_user_registration_register', array('step' => 2));
-            return $this->redirect($url);
-        }
-
-        if ($request->isMethod('post') && $step == 2 && $type == 'investor') {
-            $session->set('data_user', array('test' => 'test'));
-            $url = $this->generateUrl('fos_user_registration_register', array('step' => 3));
-            return $this->redirect($url);
-        }
 
         $user = $this->userManager->createUser();
         $user->setEnabled(true);
@@ -91,15 +76,31 @@ class RegistrationController extends Controller
 
         if ($form->isSubmitted()) {
             if ($form->isValid()) {
+
+                dump($_POST);
+                die;
+
                 $event = new FormEvent($form, $request);
                 $this->eventDispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
 
-                $this->userManager->updateUser($user);
+                dump($user);
+                $id = $this->userManager->updateUser($user);
+                dump($id) ;
 
                 if (null === $response = $event->getResponse()) {
                     $url = $this->generateUrl('fos_user_registration_confirmed');
                     $response = new RedirectResponse($url);
                 }
+
+                // if tenant
+                /*$entityManager = $this->getDoctrine()->getManager();
+                $tenant = new Tenant();
+                $tenant->setStatusTenant(1);
+                $tenant->setProjet(NULL);
+                $entityManager->persist($tenant);
+                $entityManager->flush();
+                $user->setTenant($tenant);
+                */
 
                 $this->eventDispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
 
@@ -112,17 +113,6 @@ class RegistrationController extends Controller
             if (null !== $response = $event->getResponse()) {
                 return $response;
             }
-        }
-
-        if ($step == 1){
-            $form = $form->createView();
-            $step = 1;
-            return $this->render('@FOSUser/Registration/register.html.twig', compact('form', 'step'));
-        }
-        if ($step == 2){
-            $form = $form->createView();
-            $step = 2;
-            return $this->render('@FOSUser/Registration/register.html.twig', compact('form', 'step', 'type'));
         }
         return $this->render('@FOSUser/Registration/register.html.twig', array(
             'form' => $form->createView(),
