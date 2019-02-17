@@ -33,14 +33,14 @@
             </li>
 
             <li class="nav-item none-on-high">
-                <a class="nav-link" href="{{ path('fos_user_registration_register') }}">S'inscrire</a>
+                <a class="nav-link" href="{{ path('fos_user_registration_register', {'step': 1}) }}">S'inscrire</a>
             </li>
             <li class="nav-item none-on-high">
                 <a class="nav-link" href="{{ path('fos_user_security_login') }}">Se connecter</a>
             </li>
         </ul>
         <div class="right none-on-low">
-            <a class="btn_c" href="{{ path('fos_user_registration_register') }}">S'inscrire</a>
+            <a class="btn_c" href="{{ path('fos_user_registration_register', {'step': 1}) }}">S'inscrire</a>
             <a class="btn_c" href="{{ path('fos_user_security_login') }}">Se connecter</a>
         </div>
     </div>

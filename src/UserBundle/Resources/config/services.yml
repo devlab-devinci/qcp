@@ -2,3 +2,11 @@ services:
 #    user.example:
 #        class: UserBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+    fos_user.registration.controller:
+        class: UserBundle\Controller\RegistrationController
+        arguments:
+          $eventDispatcher: '@event_dispatcher'
+          $formFactory: '@fos_user.registration.form.factory'
+          $userManager: '@fos_user.user_manager'
+          $tokenStorage: '@security.token_storage'
