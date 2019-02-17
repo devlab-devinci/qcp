@@ -1,0 +1,16 @@
+{% extends 'corps.html.twig' %}
+
+{% use '@Front/Tenant/navbar.html.twig' %}
+
+{% block body %}
+    <div class="container header">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <h1>Carte des agences partenaires</h1>
+            </div>
+        </div>
+
+        <iframe class="mapFrame" src="{{ path('agence_frame') }}" frameborder="0">
+        </iframe>
+    </div>
+{% endblock %}
