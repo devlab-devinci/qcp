@@ -96,6 +96,7 @@ class RegistrationController extends Controller
                     $tenant->setProjet(NULL);
                     $entityManager->persist($tenant);
                     $entityManager->flush();
+                    $user->addRole("ROLE_TENANT");
                     $user->setTenant($tenant);
                     */
                 }elseif ($_POST['fos_user_registration_form']['type'] == 'investor'){
@@ -105,8 +106,10 @@ class RegistrationController extends Controller
                     $investor->setFirstname($_POST['fos_user_registration_form']['firstname']);
                     $investor->setLastname($_POST['fos_user_registration_form']['lastname']);
                     $investor->setStatusInvestor(0);
+                    $investor->setBirthday(new \DateTime($_POST['fos_user_registration_form']['birthday']));
                     $entityManager->persist($investor);
                     $entityManager->flush();
+                    $user->addRole("ROLE_INVESTOR");
                     $user->setInvestor($investor);
                 }
 

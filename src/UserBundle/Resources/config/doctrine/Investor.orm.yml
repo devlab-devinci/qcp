@@ -18,6 +18,10 @@ UserBundle\Entity\Investor:
         firstname:
             type: string
             length: 255
+        birthday:
+            type: datetime
+            length: 255
+            nullable: true
     lifecycleCallbacks: {  }
 
     oneToOne:

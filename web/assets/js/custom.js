@@ -73,20 +73,20 @@ $('.click-sf').click(function (event) {
     var email       = $('#sf-email').val();
     var pass        = $('#sf-pass').val();
     var passconfirm = $('#sf-pass-confirm').val();
+    var birthday    = $('#sf-date').val();
     var type        = $(this).attr('id');
 
-    //investor
-
-    //tenant
-
-    //set var to sf form
+    //set var to sf form for investor
     $('#fos_user_registration_form_email').val(email);
     $('#fos_user_registration_form_username').val(email);
     $('#fos_user_registration_form_plainPassword_first').val(pass);
     $('#fos_user_registration_form_plainPassword_second').val(passconfirm);
     $('#fos_user_registration_form_lastname').val(lastname);
     $('#fos_user_registration_form_firstname').val(firstname);
+    $('#fos_user_registration_form_birthday').val(birthday);
     $('#fos_user_registration_form_type').val(type);
+
+    //set var to sf form for tenant
 
 
 

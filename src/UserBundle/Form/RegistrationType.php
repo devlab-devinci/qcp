@@ -39,6 +39,9 @@ class RegistrationType extends AbstractType
             ->add('firstname', null, array(
                 "mapped" => false,
             ))
+            ->add('birthday', null, array(
+                "mapped" => false,
+            ))
             ->add('type', null, array(
                 "mapped" => false,
             ))
