@@ -1,5 +1,5 @@
 function initMap() {
-    var paris = {lat: 48.866667, lng: 2.333333};
+    var paris = {lat: 45.410788, lng: 0.090857};
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 16,
         center: paris
@@ -14,13 +14,21 @@ function initMap() {
                 return response.json().then(function(json) {
                     if(json.length > 0){
                         json.forEach((el) => {
-                            var contentString = `<div id="content">
-                        <div id="siteNotice">
-                        </div>
-                        <h1 id="firstHeading" class="firstHeading">${el.name}</h1>
-                        <div id="bodyContent">
-                        ${el.description}
-                        </div>
+                            var contentString = `
+                            <div id="content">
+                                <div>
+                                    <img src="${el.thumbnail}" alt="">
+                                </div>
+                                
+                                <div>
+                                    <h1 id="firstHeading" class="firstHeading">${el.name}</h1>
+                                    
+                                    <div id="bodyContent">
+                                        <p>${el.description}</p>
+                                        <p>${el.address}</p>
+                                        <p><a href="${el.site}" target="_blank">Site de l'agence</a></p>
+                                    </div>
+                                </div>
                         </div>`;
 
                         var infowindow = new google.maps.InfoWindow({
