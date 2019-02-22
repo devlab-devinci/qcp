@@ -30,7 +30,12 @@ class Agence
     /**
      * @var string
      */
-    private $location;
+    private $long;
+
+    /**
+     * @var string
+     */
+    private $lat;
 
     /**
      * @var string
@@ -126,28 +131,38 @@ class Agence
     }
 
     /**
-     * Set location
-     *
-     * @param string $location
-     *
-     * @return Agence
+     * @return string
      */
-    public function setLocation($location)
+    public function getLong()
     {
-        $this->location = $location;
-
-        return $this;
+        return $this->long;
     }
 
     /**
-     * Get location
-     *
+     * @param string $long
+     */
+    public function setLong($long)
+    {
+        $this->long = $long;
+    }
+
+    /**
      * @return string
      */
-    public function getLocation()
+    public function getLat()
     {
-        return $this->location;
+        return $this->lat;
     }
+
+    /**
+     * @param string $lat
+     */
+    public function setLat($lat)
+    {
+        $this->lat = $lat;
+    }
+
+
 
     /**
      * Set address

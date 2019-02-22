@@ -17,8 +17,12 @@ AgenceBundle\Entity\Agence:
         thumbnail:
             type: string
             length: 255
-        location:
-            type: text
+        long:
+            type: string
+            length: 255
+        lat:
+            type: string
+            length: 255
         address:
             type: text
         site:
