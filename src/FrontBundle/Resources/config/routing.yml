@@ -17,3 +17,11 @@ front_investor_homepage:
 front_tenant_homepage:
     path:     /tenant
     defaults: { _controller: FrontBundle:Default:tenantHome }
+
+front_investor_register:
+    path:     /investor-register
+    defaults: { _controller: FrontBundle:Default:investorRegister }
+
+front_tenant_register:
+    path:     /tenant-register
+    defaults: { _controller: FrontBundle:Default:tenantRegister}

@@ -167,4 +167,62 @@ class Investor
     {
         return $this->birthday;
     }
+    /**
+     * @var string
+     */
+    private $cni;
+
+    /**
+     * @var string
+     */
+    private $addressProof;
+
+
+    /**
+     * Set cni
+     *
+     * @param string $cni
+     *
+     * @return Investor
+     */
+    public function setCni($cni)
+    {
+        $this->cni = $cni;
+
+        return $this;
+    }
+
+    /**
+     * Get cni
+     *
+     * @return string
+     */
+    public function getCni()
+    {
+        return $this->cni;
+    }
+
+    /**
+     * Set addressProof
+     *
+     * @param string $addressProof
+     *
+     * @return Investor
+     */
+    public function setAddressProof($addressProof)
+    {
+        $this->addressProof = $addressProof;
+
+        return $this;
+    }
+
+    /**
+     * Get addressProof
+     *
+     * @return string
+     */
+    public function getAddressProof()
+    {
+        return $this->addressProof;
+    }
 }

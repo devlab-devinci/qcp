@@ -12,6 +12,8 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    cni_directory: '%kernel.project_dir%/web/uploads/cni'
+    proofaddress_directory: '%kernel.project_dir%/web/uploads/proofaddress'
 
 framework:
     #esi: ~

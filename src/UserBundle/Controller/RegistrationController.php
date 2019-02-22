@@ -89,18 +89,38 @@ class RegistrationController extends Controller
                 }
 
                 if ($_POST['fos_user_registration_form']['type'] == 'tenant'){
+                    $_SESSION['user_register'] = true;
                     // if tenant
-                    /*$entityManager = $this->getDoctrine()->getManager();
+                    $entityManager = $this->getDoctrine()->getManager();
                     $tenant = new Tenant();
-                    $tenant->setStatusTenant(1);
+                    $tenant->setStatusTenant(0);
+                    $tenant->setStatus($_POST['fos_user_registration_form']['status']);
+                    $tenant->setFirstname($_POST['fos_user_registration_form']['firstname']);
+                    $tenant->setLastname($_POST['fos_user_registration_form']['lastname']);
+                    $tenant->setBirthday(new \DateTime($_POST['fos_user_registration_form']['birthday']));
+                    $tenant->setBail($_POST['fos_user_registration_form']['bail']);
+                    $tenant->setChild($_POST['fos_user_registration_form']['child']);
+                    $tenant->setWorktype($_POST['fos_user_registration_form']['worktype']);
+                    $tenant->setRent($_POST['fos_user_registration_form']['rent']);
+                    $tenant->setRelation($_POST['fos_user_registration_form']['relation']);
+                    $tenant->setQsp($_POST['fos_user_registration_form']['qsp']);
                     $tenant->setProjet(NULL);
                     $entityManager->persist($tenant);
                     $entityManager->flush();
                     $user->addRole("ROLE_TENANT");
                     $user->setTenant($tenant);
-                    */
+                    $_SESSION['user_register_id_tenant'] = $tenant->getId();
+                    $_SESSION['user_register_id_user'] = $user->getId();
+
+                    //redirect to finsih tenant
+                    $this->eventDispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
+                    $url = $this->generateUrl('front_tenant_register');
+                    $response = new RedirectResponse($url);
+
+
                 }elseif ($_POST['fos_user_registration_form']['type'] == 'investor'){
                     // if investor
+                    $_SESSION['user_register'] = true;
                     $entityManager = $this->getDoctrine()->getManager();
                     $investor = new Investor();
                     $investor->setFirstname($_POST['fos_user_registration_form']['firstname']);
@@ -111,10 +131,14 @@ class RegistrationController extends Controller
                     $entityManager->flush();
                     $user->addRole("ROLE_INVESTOR");
                     $user->setInvestor($investor);
+                    $_SESSION['user_register_id_investor'] = $investor->getId();
+                    $_SESSION['user_register_id_user'] = $user->getId();
+
+                    //redirect to finsih investor
+                    $this->eventDispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
+                    $url = $this->generateUrl('front_investor_register');
+                    $response = new RedirectResponse($url);
                 }
-
-
-                $this->eventDispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
 
                 return $response;
             }

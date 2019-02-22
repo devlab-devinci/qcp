@@ -18,6 +18,14 @@ UserBundle\Entity\Investor:
         firstname:
             type: string
             length: 255
+        cni:
+            type: string
+            length: 255
+            nullable: true
+        addressProof:
+            type: string
+            length: 255
+            nullable: true
         birthday:
             type: datetime
             length: 255
