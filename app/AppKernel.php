@@ -27,6 +27,7 @@ class AppKernel extends Kernel
             new FrontBundle\FrontBundle(),
             new AgenceBundle\AgenceBundle(),
             new ProjetBundle\ProjetBundle(),
+            new FaqBundle\FaqBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

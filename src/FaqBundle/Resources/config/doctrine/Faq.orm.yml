@@ -1,0 +1,17 @@
+FaqBundle\Entity\Faq:
+    type: entity
+    table: null
+    repositoryClass: FaqBundle\Repository\FaqRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        question:
+            type: string
+            length: 255
+        answer:
+            type: text
+    lifecycleCallbacks: {  }

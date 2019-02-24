@@ -2,6 +2,10 @@ projet:
     resource: "@ProjetBundle/Resources/config/routing.yml"
     prefix:   /project
 
+faq:
+    resource: "@FaqBundle/Resources/config/routing.yml"
+    prefix:   /faq
+
 agence:
     resource: "@AgenceBundle/Resources/config/routing.yml"
     prefix:   /agency

@@ -8,16 +8,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
 {
-    public function indexAction()
-    {
-        return $this->render('FrontBundle:Tenant:index.html.twig');
-    }
-
-    public function mapAction()
-    {
-        return $this->render('FrontBundle:Tenant:carte.html.twig');
-    }
-
     public function frameAction()
     {
         return $this->render('FrontBundle:Tenant:mapFrame.html.twig');

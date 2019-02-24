@@ -1,0 +1,20 @@
+{% extends 'corps.html.twig' %}
+
+{% block body %}
+
+    <div class="container-fluid">
+        <div class="row header-standard">
+            <div class="col-sm-12">
+                <h1>Foire Aux Questions</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5 mb-5">
+        {% for question in questions %}
+            <strong>{{ question.question }}</strong>
+            <p>{{ question.answer }}</p>
+        {% endfor %}
+    </div>
+
+{% endblock %}

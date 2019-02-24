@@ -25,6 +25,13 @@ services:
             - { name: sonata.admin, manager_type: orm, group: "Contenu", label: Le blog }
         public: true
 
+    admin.faq:
+        class: FaqBundle\Admin\FaqAdmin
+        arguments: [~, FaqBundle\Entity\Faq, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Contenu", label: La Faq }
+        public: true
+
     admin.agence:
         class: AgenceBundle\Admin\AgenceAdmin
         arguments: [~, AgenceBundle\Entity\Agence, ~]
