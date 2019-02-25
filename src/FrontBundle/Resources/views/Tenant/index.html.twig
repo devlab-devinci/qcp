@@ -3,38 +3,195 @@
 {% use '@Front/Tenant/navbar.html.twig' %}
 
 {% block body %}
-<div class="container header">
-    <div class="row">
-        <div class="col-sm-12 text-center">
-            <h1>Tableau de bord</h1>
+    <div class="container header">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <h1>Tableau de bord</h1>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-4 col-sm-12">
+
+                <div class="bloc-droite btwo">
+                    <a href="#" id="closeBtwo"><svg id="svgBtwo" class="topRightAbsolute" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z"/></svg></a>
+                    <h2 class="text-center">Vos documents</h2>
+                    <div id="displayBtwo">
+                        <ul>
+                            <a href="" data-toggle="modal" data-target="#PJPiece"><li>Pièce d'identité</li></a>
+                            <a href="" data-toggle="modal" data-target="#PJReleve"><li>3 derniers relevés de comptes (X/3)</li></a>
+                            <a href="" data-toggle="modal" data-target="#PJJustificatif"><li>Justificatif de revenus</li></a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="bloc-gauche">
+                    <h3>Logement</h3>
+                    <hr>
+                    {% if app.user.tenant.projet is null %}
+                        <p>Vous n'avez actuellement pas de logement</p>
+                    {% else %}
+                        <p>Vous disposez d'un bail au X</p>
+                        <a class="btn btn-primary" href="carte.html">Trouver un logement partenaire</a>
+                        <a class="btn btn-secondary" href="#" data-toggle="modal" data-target="#PJLogement">Déclarer un logement</a>
+                    {% endif %}
+
+                    <h3 class="mt-5">Besoin de garantie</h3>
+                    <hr>
+                    {% if app.user.tenant.status == 0 %}
+                    <p><strong>Votre profil est en cours de validation par l'équipe QSP</strong></p>
+                    {% elseif app.user.tenant.status == 1 %}
+                    <p><strong>Votre profil n'a pas été validé. <br>
+                            Vous pouvez toujours renseigner de nouvelles pièces justificatives valudes et soumettre une nouvelle demande de candidature. </strong></p>
+                    {% elseif app.user.tenant.status == 2 %}
+                    <p><strong>Pour soumettre une validation de profil veuillez renseigner correctement toutes les pièces justificatives.</strong></p>
+                    {% elseif app.user.tenant.status == 3 %}
+                    <p><strong>Votre profil a été validé par l'équipe QSP</strong>
+
+                    <p>Votre besoin de garantie est de X</p>
+                    <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#modifGaranties">Modifier</a>
+                    <a class="btn btn-primary" href="#">Soumettre une validation</a>
+
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+    <!-- Modif garanties -->
+    <div class="modal fade" id="modifGaranties" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Besoin de garanties</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group col-md-12">
+                        <label class="my-1 mr-2" for="loyer">Votre besoin de garantie </label>
+                        <input type="number" class="form-control my-1 mr-sm-2" id="loyer" placeholder="Loyer mensuel">
+                    </div>
+                    <br>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Soumettre</button>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-sm-8">
-            <div class="bloc-gauche">
-                <div class="sous-bloc">
-                    <img src="" alt=""> <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat ullam error nam velit saepe ipsa? Amet illo, saepe enim eius consequuntur repudiandae deleniti facere dolores odit? Ex sit numquam deserunt.</p>
+
+
+    <!-- Declaration logement -->
+    <div class="modal fade" id="PJLogement" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Déclarer un logement</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <div class="sous-bloc">
-                    <img src="" alt=""> <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat ullam error nam velit saepe ipsa? Amet illo, saepe enim eius consequuntur repudiandae deleniti facere dolores odit? Ex sit numquam deserunt.</p>
+                <div class="modal-body">
+                    ...
+                    <br>
                 </div>
-                <div class="sous-bloc">
-                    <img src="" alt=""> <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat ullam error nam velit saepe ipsa? Amet illo, saepe enim eius consequuntur repudiandae deleniti facere dolores odit? Ex sit numquam deserunt.</p>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary">Voir le fichier joint</button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#PJLogement">Envoyer un nouveau document</button>
                 </div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="bloc-droite bone">
-                Yo
-            </div>
-            <div class="bloc-droite btwo">
-                Yo
-            </div>
-            <div class="bloc-droite bthree">
-                Yo
             </div>
         </div>
     </div>
-</div>
+
+
+
+    <!-- Piece d'identité -->
+    <div class="modal fade" id="PJPiece" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Pièce d'identité</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Une carte nationale d'identité recto/verso, en couleurs et en cours de validité, ou un passeport en couleurs et en cours de validité.
+                    <br>
+                    <strong>En format PDF</strong><br><br>
+                    <input type="file" class="btn btn-secondary" id="exampleFormControlFile1">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary">Voir le fichier joint</button>
+                    <button type="button" class="btn btn-primary">Envoyer le nouveau document</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Relevés -->
+    <div class="modal fade" id="PJReleve" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Relevé de compte</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Veuillez joindre les 3 derniers relevés de comptes.
+                    <br>
+                    <strong>En format PDF</strong> <br><br>
+                    <input type="file" class="btn btn-secondary" id="exampleFormControlFile1">
+                    <br><br>
+                    <input type="file" class="btn btn-secondary" id="exampleFormControlFile1">
+                    <br><br>
+                    <input type="file" class="btn btn-secondary" id="exampleFormControlFile1">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary">Voir les fichiers joints</button>
+                    <button type="button" class="btn btn-primary">Envoyer les nouveaux documents</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Justificatif-->
+    <div class="modal fade" id="PJJustificatif" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Justificatif de revenus</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Votre Justificatif de revenus
+                    <br>
+                    <strong>En format PDF</strong> <br><br>
+                    <input type="file" class="btn btn-secondary" id="exampleFormControlFile1">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary">Voir le fichier joint</button>
+                    <button type="button" class="btn btn-primary">Envoyer un nouveau document</button>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

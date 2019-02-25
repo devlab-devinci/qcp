@@ -8,7 +8,8 @@
             "BlogBundle\\": "src/BlogBundle",
             "FrontBundle\\": "src/FrontBundle",
             "AgenceBundle\\": "src/AgenceBundle",
-            "ProjetBundle\\": "src/ProjetBundle"
+            "ProjetBundle\\": "src/ProjetBundle",
+            "FaqBundle\\": "src/FaqBundle"
         },
         "classmap": [
             "app/AppKernel.php",

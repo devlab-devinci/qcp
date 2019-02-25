@@ -1,5 +1,5 @@
 function initMap() {
-    var paris = {lat: 45.410788, lng: 0.090857};
+    var paris = {lat: 48.895852, lng: 2.236409};
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 16,
         center: paris
