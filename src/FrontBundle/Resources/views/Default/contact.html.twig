@@ -1,0 +1,54 @@
+{% extends 'corps.html.twig' %}
+
+{% block body %}
+    <!-- HEADER -->
+
+    <div class="container-fluid">
+        <div class="row header-standard">
+            <div class="col-sm-12">
+                <h1>Nous contacter</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5 mb-5 text-center">
+
+        <form>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <input type="name" class="form-control" placeholder="Nom">
+                </div>
+                <div class="form-group col-md-6">
+                    <input type="mail" class="form-control" placeholder="Email">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="exampleFormControlTextarea1">Example textarea</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <a class="btn btn-primary" href="#">Envoyer</a>
+
+                </div>
+            </div>
+        </form>
+
+        <a target="_blank" href="mailto:qsp.project.contact@gmail.com">qsp.project.contact@gmail.com</a>
+        <p>
+            QSP
+            <br>
+            Swave - Grande Arche Paroi Nord (19ème étage)
+            <br>
+            1 parvis de la Défense
+            <br>
+            92800 Puteaux
+        </p>
+    </div>
+
+
+
+
+{% endblock %}

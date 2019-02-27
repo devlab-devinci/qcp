@@ -6,6 +6,10 @@ front_qsnpage:
     path:     /qui-sommes-nous
     defaults: { _controller: FrontBundle:Default:qsn }
 
+front_contact:
+    path:     /nous-contacter
+    defaults: { _controller: FrontBundle:Default:contacter }
+
 front_investor_homepage:
     path:     /investor
     defaults: { _controller: FrontBundle:Default:investoreHome }

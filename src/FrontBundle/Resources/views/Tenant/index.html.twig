@@ -34,7 +34,7 @@
                         <p>Vous n'avez actuellement pas de logement</p>
                     {% else %}
                         <p>Vous disposez d'un bail au X</p>
-                        <a class="btn btn-primary" href="carte.html">Trouver un logement partenaire</a>
+                        <a class="btn btn-primary" href="{{ path('front_tenant_map') }}">Trouver un logement partenaire</a>
                         <a class="btn btn-secondary" href="#" data-toggle="modal" data-target="#PJLogement">Déclarer un logement</a>
                     {% endif %}
 
@@ -50,7 +50,7 @@
                     {% elseif app.user.tenant.status == 3 %}
                     <p><strong>Votre profil a été validé par l'équipe QSP</strong>
 
-                    <p>Votre besoin de garantie est de X</p>
+                    <p>Votre besoin de garantie est de {{ app.user.tenant.rent }}</p>
                     <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#modifGaranties">Modifier</a>
                     <a class="btn btn-primary" href="#">Soumettre une validation</a>
 

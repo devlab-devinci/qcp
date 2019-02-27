@@ -29,6 +29,11 @@ class DefaultController extends Controller
         return $this->render('FrontBundle:Default:qsn.html.twig');
     }
 
+    public function contacterAction()
+    {
+        return $this->render('FrontBundle:Default:contact.html.twig');
+    }
+
     public function tenantRegisterAction()
     {
         if (isset($_SESSION['user_register'])) {
