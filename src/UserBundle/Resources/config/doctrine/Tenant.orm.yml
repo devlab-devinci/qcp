@@ -43,6 +43,26 @@ UserBundle\Entity\Tenant:
         qsp:
             type: string
             length: 255
+        docPI:
+            type: string
+            length: 255
+            nullable: true
+        docReleveUn:
+            type: string
+            length: 255
+            nullable: true
+        docReleveDeux:
+            type: string
+            length: 255
+            nullable: true
+        docReleveTrois:
+            type: string
+            length: 255
+            nullable: true
+        docJustifie:
+            type: string
+            length: 255
+            nullable: true
     lifecycleCallbacks: {  }
 
     oneToOne:

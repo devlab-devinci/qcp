@@ -195,6 +195,30 @@ class Tenant
      */
     private $qsp;
 
+    /**
+     * @var string
+     */
+    private $docPI;
+
+    /**
+     * @var string
+     */
+    private $docReleveUn;
+
+    /**
+     * @var string
+     */
+    private $docReleveDeux;
+
+    /**
+     * @var string
+     */
+    private $docReleveTrois;
+
+    /**
+     * @var string
+     */
+    private $docJustifie;
 
     /**
      * Set lastname
@@ -439,5 +463,85 @@ class Tenant
     public function getStatus()
     {
         return $this->status;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDocPI()
+    {
+        return $this->docPI;
+    }
+
+    /**
+     * @param string $docPI
+     */
+    public function setDocPI($docPI)
+    {
+        $this->docPI = $docPI;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDocReleveUn()
+    {
+        return $this->docReleveUn;
+    }
+
+    /**
+     * @param string $docReleveUn
+     */
+    public function setDocReleveUn($docReleveUn)
+    {
+        $this->docReleveUn = $docReleveUn;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDocReleveDeux()
+    {
+        return $this->docReleveDeux;
+    }
+
+    /**
+     * @param string $docReleveDeux
+     */
+    public function setDocReleveDeux($docReleveDeux)
+    {
+        $this->docReleveDeux = $docReleveDeux;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDocReleveTrois()
+    {
+        return $this->docReleveTrois;
+    }
+
+    /**
+     * @param string $docReleveTrois
+     */
+    public function setDocReleveTrois($docReleveTrois)
+    {
+        $this->docReleveTrois = $docReleveTrois;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDocJustifie()
+    {
+        return $this->docJustifie;
+    }
+
+    /**
+     * @param string $docJustifie
+     */
+    public function setDocJustifie($docJustifie)
+    {
+        $this->docJustifie = $docJustifie;
     }
 }

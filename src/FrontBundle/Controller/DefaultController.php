@@ -2,13 +2,14 @@
 
 namespace FrontBundle\Controller;
 
+use FrontBundle\Form\TenantType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Security\Core\Security;
 use UserBundle\Entity\Investor;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use UserBundle\Entity\Tenant;
 
 
 class DefaultController extends Controller
@@ -95,9 +96,75 @@ class DefaultController extends Controller
         }
     }
 
-    public function tenantHomeAction()
+    public function tenantHomeAction(Request $request)
     {
-        return $this->render('FrontBundle:Tenant:index.html.twig');
+        $id = $this->get('security.token_storage')->getToken()->getUser()->getTenant()->getId();
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $tenant = $entityManager->getRepository(Tenant::class)->find($id);
+
+        $form = $this->createForm(TenantType::class, $tenant);
+
+        $paramGet = $request->files->get('tenant');
+
+        $newParam = array();
+
+        if (isset($paramGet)) {
+            if (!$paramGet['docPI'] instanceof UploadedFile && $tenant->getDocPI() != null) {
+                $newParam['docPI'] = $tenant->getDocPI();
+                $file = substr(strrchr( $newParam['docPI'] , '/' ), 1);
+                $newParam['docPI'] = new UploadedFile($newParam['docPI'], $file);
+            } else {
+                $newParam['docPI'] = $paramGet['docPI'];
+            }
+
+            if (!$paramGet['docReleveUn'] instanceof UploadedFile && $tenant->getDocReleveUn() != null) {
+                $newParam['docReleveUn'] = $tenant->getDocReleveUn();
+                $file = substr(strrchr( $newParam['docReleveUn'] , '/' ), 1);
+                $newParam['docReleveUn'] = new UploadedFile($newParam['docReleveUn'], $file);
+            } else {
+                $newParam['docReleveUn'] = $paramGet['docReleveUn'];
+            }
+
+            if (!$paramGet['docReleveDeux'] instanceof UploadedFile && $tenant->getDocReleveDeux() != null) {
+                $newParam['docReleveDeux'] = $tenant->getDocReleveDeux();
+                $file = substr(strrchr( $newParam['docReleveDeux'] , '/' ), 1);
+                $newParam['docReleveDeux'] = new UploadedFile($newParam['docReleveDeux'], $file);
+            } else {
+                $newParam['docReleveDeux'] = $paramGet['docReleveDeux'];
+            }
+
+            if (!$paramGet['docReleveTrois'] instanceof UploadedFile && $tenant->getDocReleveTrois() != null) {
+                $newParam['docReleveTrois'] = $tenant->getDocReleveTrois();
+                $file = substr(strrchr( $newParam['docReleveTrois'] , '/' ), 1);
+                $newParam['docReleveTrois'] = new UploadedFile($newParam['docReleveTrois'], $file);
+            } else {
+                $newParam['docReleveTrois'] = $paramGet['docReleveTrois'];
+            }
+
+            if (!$paramGet['docJustifie'] instanceof UploadedFile && $tenant->getDocJustifie() != null) {
+                $newParam['docJustifie'] = $tenant->getDocJustifie();
+                $file = substr(strrchr( $newParam['docJustifie'] , '/' ), 1);
+                $newParam['docJustifie'] = new UploadedFile($newParam['docJustifie'], $file);
+            } else {
+                $newParam['docJustifie'] = $paramGet['docJustifie'];
+            }
+
+            $request->files->set('tenant', $newParam);
+        }
+
+        $form->handleRequest($request);
+        $entityManager->persist($tenant);
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $entityManager->flush();
+
+            return $this->redirect($this->generateUrl('front_tenant_homepage'));
+        }
+
+        return $this->render('FrontBundle:Tenant:index.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
 
     public function tenantMapAction()
