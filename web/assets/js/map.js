@@ -35,7 +35,7 @@ function initMap() {
                             content: contentString
                         });
                         var marker = new google.maps.Marker({
-                            position: {lat: parseFloat(el.lat), lng: parseFloat(el.long)},
+                            position: {lat: parseFloat(el.lat), lng: parseFloat(el.longitude)},
                             map: map,
                             title: el.title
                         });

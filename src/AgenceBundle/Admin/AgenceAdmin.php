@@ -17,7 +17,7 @@ class AgenceAdmin extends AbstractAdmin
         $formMapper->add('thumbnail', TextType::class);
         $formMapper->add('description', TextareaType::class);
         $formMapper->add('address', TextType::class);
-        $formMapper->add('long', TextType::class);
+        $formMapper->add('longitude', TextType::class);
         $formMapper->add('lat', TextType::class);
         $formMapper->add('site', TextType::class);
     }
