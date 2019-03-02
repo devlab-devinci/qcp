@@ -24,7 +24,9 @@ AgenceBundle\Entity\Agence:
             type: string
             length: 255
         address:
-            type: text
+            type: string
+            length: 255
         site:
-            type: text
+            type: string
+            length: 255
     lifecycleCallbacks: {  }

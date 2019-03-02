@@ -23,7 +23,7 @@ class FileTenantUploadListener
     public function __construct(FileUploader $uploader, $targetDirectory)
     {
         $this->uploader = $uploader;
-        $this->targetDirectory = $targetDirectory;
+        $this->targetDirectory = str_replace("\\", "/", $targetDirectory);;
     }
 
     public function prePersist(LifecycleEventArgs $args)
@@ -93,19 +93,4 @@ class FileTenantUploadListener
         }
     }
 
-    public function postLoad(LifecycleEventArgs $args)
-    {
-        $entity = $args->getEntity()->getTenant();
-
-        if (!$entity instanceof Tenant) {
-            return;
-        }
-
-        if ($fileName = $entity->getDocPI()) {
-            $entity->setDocPI(new File($this->uploader->getTargetDirectory().'/'.$fileName));
-        }
-        if ($fileName = $entity->getDocReleveUn()) {
-            $entity->setDocReleveUn(new File($this->uploader->getTargetDirectory().'/'.$fileName));
-        }
-    }
 }

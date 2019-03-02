@@ -20,7 +20,7 @@
                     <div id="displayBtwo">
                         <ul>
                             <a href="" data-toggle="modal" data-target="#PJPiece"><li>Pièce d'identité</li></a>
-                            <a href="" data-toggle="modal" data-target="#PJReleve"><li>3 derniers relevés de comptes (X/3)</li></a>
+                            <a href="" data-toggle="modal" data-target="#PJReleve"><li>3 derniers relevés de comptes ({{ releve }}/3)</li></a>
                             <a href="" data-toggle="modal" data-target="#PJJustificatif"><li>Justificatif de revenus</li></a>
                         </ul>
                     </div>
@@ -114,6 +114,8 @@
     </div>
 
 
+    {{ form_start(form) }}
+    {{ form_row(form._token) }}
 
     <!-- Piece d'identité -->
     <div class="modal fade" id="PJPiece" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -129,11 +131,12 @@
                     Une carte nationale d'identité recto/verso, en couleurs et en cours de validité, ou un passeport en couleurs et en cours de validité.
                     <br>
                     <strong>En format PDF</strong><br><br>
-                    <input type="file" class="btn btn-secondary" id="exampleFormControlFile1">
+                    {{ form_widget(form.docPI, {'attr': {'class': 'btn btn-secondary'}}) }}
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary">Voir le fichier joint</button>
-                    <button type="button" class="btn btn-primary">Envoyer le nouveau document</button>
+                    <a href="{{ app.user.tenant.docPI }}" target="_blank" class="btn btn-secondary">Voir le fichiers joint</a>
+                    {#<button type="button" class="btn btn-secondary">Voir le fichier joint</button>#}
+                    {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
                 </div>
             </div>
         </div>
@@ -154,23 +157,20 @@
                     Veuillez joindre les 3 derniers relevés de comptes.
                     <br>
                     <strong>En format PDF</strong> <br><br>
-                    <input type="file" class="btn btn-secondary" id="exampleFormControlFile1">
+                    {{ form_widget(form.docReleveUn, {'attr': {'class': 'btn btn-secondary'}}) }}
                     <br><br>
-                    <input type="file" class="btn btn-secondary" id="exampleFormControlFile1">
+                    {{ form_widget(form.docReleveDeux, {'attr': {'class': 'btn btn-secondary'}}) }}
                     <br><br>
-                    <input type="file" class="btn btn-secondary" id="exampleFormControlFile1">
+                    {{ form_widget(form.docReleveTrois, {'attr': {'class': 'btn btn-secondary'}}) }}
 
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary">Voir les fichiers joints</button>
-                    <button type="button" class="btn btn-primary">Envoyer les nouveaux documents</button>
+                    {{ form_widget(form.save2, {'attr': {'class': 'btn btn-primary'}}) }}
                 </div>
             </div>
         </div>
     </div>
-
-    {{ form_start(form) }}
-    {{ form_end(form) }}
 
     <!-- Justificatif-->
     <div class="modal fade" id="PJJustificatif" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -186,13 +186,16 @@
                     Votre Justificatif de revenus
                     <br>
                     <strong>En format PDF</strong> <br><br>
-                    <input type="file" class="btn btn-secondary" id="exampleFormControlFile1">
+                    {{ form_widget(form.docJustifie, {'attr': {'class': 'btn btn-secondary'}}) }}
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary">Voir le fichier joint</button>
-                    <button type="button" class="btn btn-primary">Envoyer un nouveau document</button>
+                    <a href="{{ app.user.tenant.docJustifie }}" target="_blank" class="btn btn-secondary">Voir le fichiers joint</a>
+                    {#<button type="button" class="btn btn-secondary">Voir le fichier joint</button>#}
+                    {{ form_widget(form.save3, {'attr': {'class': 'btn btn-primary'}}) }}
                 </div>
             </div>
         </div>
     </div>
+
+    {{ form_end(form, {'render_rest': false}) }}
 {% endblock %}

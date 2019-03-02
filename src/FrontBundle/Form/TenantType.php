@@ -32,7 +32,9 @@ class TenantType extends AbstractType
                 array('data_class' => null, 'required' => false, 'label' => 'Relvevé trois'))
             ->add('docJustifie', FileType::class,
                 array('data_class' => null, 'required' => false, 'label' => 'Justificatif de revenus'))
-            ->add('save', SubmitType::class, ['label' => 'submit'])
+            ->add('save', SubmitType::class, ['label' => 'Envoyer un nouveau document'])
+            ->add('save2', SubmitType::class, ['label' => 'Envoyer un nouveau document'])
+            ->add('save3', SubmitType::class, ['label' => 'Envoyer un nouveau document'])
         ;
     }
 

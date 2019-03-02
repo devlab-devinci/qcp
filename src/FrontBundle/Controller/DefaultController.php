@@ -110,44 +110,46 @@ class DefaultController extends Controller
         $newParam = array();
 
         if (isset($paramGet)) {
-            if (!$paramGet['docPI'] instanceof UploadedFile && $tenant->getDocPI() != null) {
+
+
+            if (isset($paramGet['docPI']) && $paramGet['docPI'] instanceof UploadedFile ) {
+                $newParam['docPI'] = $paramGet['docPI'];
+            } else if ($tenant->getDocPI() != null){
                 $newParam['docPI'] = $tenant->getDocPI();
                 $file = substr(strrchr( $newParam['docPI'] , '/' ), 1);
                 $newParam['docPI'] = new UploadedFile($newParam['docPI'], $file);
-            } else {
-                $newParam['docPI'] = $paramGet['docPI'];
             }
 
-            if (!$paramGet['docReleveUn'] instanceof UploadedFile && $tenant->getDocReleveUn() != null) {
-                $newParam['docReleveUn'] = $tenant->getDocReleveUn();
+            if (isset($paramGet['docReleveUn']) && $paramGet['docReleveUn'] instanceof UploadedFile ) {
+                $newParam['docReleveUn'] = $paramGet['docReleveUn'];
+            } else if ($tenant->getDocReleveUn() != null){
+                $newParam['docReleveUn'] = $tenant->getDocReveleUn();
                 $file = substr(strrchr( $newParam['docReleveUn'] , '/' ), 1);
                 $newParam['docReleveUn'] = new UploadedFile($newParam['docReleveUn'], $file);
-            } else {
-                $newParam['docReleveUn'] = $paramGet['docReleveUn'];
             }
 
-            if (!$paramGet['docReleveDeux'] instanceof UploadedFile && $tenant->getDocReleveDeux() != null) {
-                $newParam['docReleveDeux'] = $tenant->getDocReleveDeux();
+            if (isset($paramGet['docReleveDeux']) && $paramGet['docReleveDeux'] instanceof UploadedFile ) {
+                $newParam['docReleveDeux'] = $paramGet['docReleveDeux'];
+            } else if ($tenant->getDocReleveDeux() != null){
+                $newParam['docReleveDeux'] = $tenant->getDocReveleDeux();
                 $file = substr(strrchr( $newParam['docReleveDeux'] , '/' ), 1);
                 $newParam['docReleveDeux'] = new UploadedFile($newParam['docReleveDeux'], $file);
-            } else {
-                $newParam['docReleveDeux'] = $paramGet['docReleveDeux'];
             }
 
-            if (!$paramGet['docReleveTrois'] instanceof UploadedFile && $tenant->getDocReleveTrois() != null) {
-                $newParam['docReleveTrois'] = $tenant->getDocReleveTrois();
+            if (isset($paramGet['docReleveTrois']) && $paramGet['docReleveTrois'] instanceof UploadedFile ) {
+                $newParam['docReleveTrois'] = $paramGet['docReleveTrois'];
+            } else if ($tenant->getDocReleveTrois() != null){
+                $newParam['docReleveTrois'] = $tenant->getDocReveleTrois();
                 $file = substr(strrchr( $newParam['docReleveTrois'] , '/' ), 1);
                 $newParam['docReleveTrois'] = new UploadedFile($newParam['docReleveTrois'], $file);
-            } else {
-                $newParam['docReleveTrois'] = $paramGet['docReleveTrois'];
             }
 
-            if (!$paramGet['docJustifie'] instanceof UploadedFile && $tenant->getDocJustifie() != null) {
+            if (isset($paramGet['docJustifie']) && $paramGet['docJustifie'] instanceof UploadedFile) {
+                $newParam['docJustifie'] = $paramGet['docJustifie'];
+            } else if (!$paramGet['docJustifie'] instanceof UploadedFile && $tenant->getDocJustifie() != null) {
                 $newParam['docJustifie'] = $tenant->getDocJustifie();
                 $file = substr(strrchr( $newParam['docJustifie'] , '/' ), 1);
                 $newParam['docJustifie'] = new UploadedFile($newParam['docJustifie'], $file);
-            } else {
-                $newParam['docJustifie'] = $paramGet['docJustifie'];
             }
 
             $request->files->set('tenant', $newParam);
@@ -162,8 +164,13 @@ class DefaultController extends Controller
             return $this->redirect($this->generateUrl('front_tenant_homepage'));
         }
 
+        $nbReleve = 0;
+        if ($tenant->getDocReleveUn() != null) { $nbReleve++; }
+        if ($tenant->getDocReleveDeux() != null) { $nbReleve++; }
+        if ($tenant->getDocReleveTrois() != null) { $nbReleve++; }
         return $this->render('FrontBundle:Tenant:index.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'releve' => $nbReleve
         ]);
     }
 
