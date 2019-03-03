@@ -12,6 +12,37 @@ UserBundle\Entity\Tenant:
         statusTenant:
             type: string
             length: 255
+        lastname:
+            type: string
+            length: 255
+        firstname:
+            type: string
+            length: 255
+        birthday:
+            type: datetime
+            length: 255
+            nullable: true
+        relation:
+            type: string
+            length: 255
+        status:
+            type: string
+            length: 255
+        worktype:
+            type: string
+            length: 255
+        child:
+            type: string
+            length: 255
+        bail:
+            type: string
+            length: 255
+        rent:
+            type: string
+            length: 255
+        qsp:
+            type: string
+            length: 255
     lifecycleCallbacks: {  }
 
     oneToOne:

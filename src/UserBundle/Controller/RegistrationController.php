@@ -28,6 +28,8 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\Session\Session;
+use UserBundle\Entity\Tenant;
+use UserBundle\Entity\Investor;
 
 /**
  * Controller managing the registration.
@@ -57,22 +59,6 @@ class RegistrationController extends Controller
      */
     public function registerAction(Request $request)
     {
-        $session = new Session();
-        // get step and type
-        $step = $request->get('step');
-        $type = $request->get('type');
-
-        if ($request->isMethod('post') && $step == 1) {
-            $session->set('data_user', array('test' => 'test'));
-            $url = $this->generateUrl('fos_user_registration_register', array('step' => 2));
-            return $this->redirect($url);
-        }
-
-        if ($request->isMethod('post') && $step == 2 && $type == 'investor') {
-            $session->set('data_user', array('test' => 'test'));
-            $url = $this->generateUrl('fos_user_registration_register', array('step' => 3));
-            return $this->redirect($url);
-        }
 
         $user = $this->userManager->createUser();
         $user->setEnabled(true);
@@ -91,17 +77,68 @@ class RegistrationController extends Controller
 
         if ($form->isSubmitted()) {
             if ($form->isValid()) {
+
                 $event = new FormEvent($form, $request);
                 $this->eventDispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
 
-                $this->userManager->updateUser($user);
+                $id = $this->userManager->updateUser($user);
 
                 if (null === $response = $event->getResponse()) {
                     $url = $this->generateUrl('fos_user_registration_confirmed');
                     $response = new RedirectResponse($url);
                 }
 
-                $this->eventDispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
+                if ($_POST['fos_user_registration_form']['type'] == 'tenant'){
+                    $_SESSION['user_register'] = true;
+                    // if tenant
+                    $entityManager = $this->getDoctrine()->getManager();
+                    $tenant = new Tenant();
+                    $tenant->setStatusTenant(0);
+                    $tenant->setStatus($_POST['fos_user_registration_form']['status']);
+                    $tenant->setFirstname($_POST['fos_user_registration_form']['firstname']);
+                    $tenant->setLastname($_POST['fos_user_registration_form']['lastname']);
+                    $tenant->setBirthday(new \DateTime($_POST['fos_user_registration_form']['birthday']));
+                    $tenant->setBail($_POST['fos_user_registration_form']['bail']);
+                    $tenant->setChild($_POST['fos_user_registration_form']['child']);
+                    $tenant->setWorktype($_POST['fos_user_registration_form']['worktype']);
+                    $tenant->setRent($_POST['fos_user_registration_form']['rent']);
+                    $tenant->setRelation($_POST['fos_user_registration_form']['relation']);
+                    $tenant->setQsp($_POST['fos_user_registration_form']['qsp']);
+                    $tenant->setProjet(NULL);
+                    $entityManager->persist($tenant);
+                    $entityManager->flush();
+                    $user->addRole("ROLE_TENANT");
+                    $user->setTenant($tenant);
+                    $_SESSION['user_register_id_tenant'] = $tenant->getId();
+                    $_SESSION['user_register_id_user'] = $user->getId();
+
+                    //redirect to finsih tenant
+                    $this->eventDispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
+                    $url = $this->generateUrl('front_tenant_register');
+                    $response = new RedirectResponse($url);
+
+
+                }elseif ($_POST['fos_user_registration_form']['type'] == 'investor'){
+                    // if investor
+                    $_SESSION['user_register'] = true;
+                    $entityManager = $this->getDoctrine()->getManager();
+                    $investor = new Investor();
+                    $investor->setFirstname($_POST['fos_user_registration_form']['firstname']);
+                    $investor->setLastname($_POST['fos_user_registration_form']['lastname']);
+                    $investor->setStatusInvestor(0);
+                    $investor->setBirthday(new \DateTime($_POST['fos_user_registration_form']['birthday']));
+                    $entityManager->persist($investor);
+                    $entityManager->flush();
+                    $user->addRole("ROLE_INVESTOR");
+                    $user->setInvestor($investor);
+                    $_SESSION['user_register_id_investor'] = $investor->getId();
+                    $_SESSION['user_register_id_user'] = $user->getId();
+
+                    //redirect to finsih investor
+                    $this->eventDispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
+                    $url = $this->generateUrl('front_investor_register');
+                    $response = new RedirectResponse($url);
+                }
 
                 return $response;
             }
@@ -112,17 +149,6 @@ class RegistrationController extends Controller
             if (null !== $response = $event->getResponse()) {
                 return $response;
             }
-        }
-
-        if ($step == 1){
-            $form = $form->createView();
-            $step = 1;
-            return $this->render('@FOSUser/Registration/register.html.twig', compact('form', 'step'));
-        }
-        if ($step == 2){
-            $form = $form->createView();
-            $step = 2;
-            return $this->render('@FOSUser/Registration/register.html.twig', compact('form', 'step', 'type'));
         }
         return $this->render('@FOSUser/Registration/register.html.twig', array(
             'form' => $form->createView(),

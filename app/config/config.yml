@@ -12,6 +12,8 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    cni_directory: '%kernel.project_dir%/web/uploads/cni'
+    proofaddress_directory: '%kernel.project_dir%/web/uploads/proofaddress'
 
 framework:
     #esi: ~
@@ -23,7 +25,7 @@ framework:
     form: ~
     csrf_protection: ~
     validation: { enable_annotations: true }
-    #serializer: { enable_annotations: true }
+    serializer: { enabled: true }
     default_locale: '%locale%'
     trusted_hosts: ~
     session:
@@ -82,9 +84,11 @@ fos_user:
     firewall_name: main
     user_class: UserBundle\Entity\User
     from_email:
-        address: "%mailer_user%"
-        sender_name: "%mailer_user%"
-
+        address: "admin@admin.com"
+        sender_name: "admin@admin.com"
+    registration:
+        form:
+            type: UserBundle\Form\RegistrationType
 
 sonata_admin:
     title: QSP - ADMIN

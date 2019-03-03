@@ -10,3 +10,8 @@ services:
           $formFactory: '@fos_user.registration.form.factory'
           $userManager: '@fos_user.user_manager'
           $tokenStorage: '@security.token_storage'
+
+    app.form.registration:
+        class: UserBundle\Form\RegistrationType
+        tags:
+            - { name: form.type, alias: app_user_registration }

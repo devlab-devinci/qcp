@@ -1,29 +1,5 @@
 {% extends "@FOSUser/layout.html.twig" %}
 
 {% block fos_user_content %}
-    {% if step == 1 %}
-
-        {% include "@FOSUser/Registration/register_content.html.twig" %}
-    {% endif %}
-
-    {% if step == 2 %}
-
-        {%if type == 'investor' %}
-            {% include 'FOSUserBundle:Registration/Investor:register_content-2.html.twig' %}
-        {% endif %}
-
-        {%if type == 'tenant' %}
-            {% include 'FOSUserBundle:Registration/Tenant:register_content-2.html.twig' %}
-        {% endif %}
-
-    {% endif %}
-
-    {% if step == 3 %}
-
-        {%if type == 'investor' %}
-            {% include 'FOSUserBundle:Registration/Investor:register_content-3.html.twig' %}
-        {% endif %}
-
-    {% endif %}
-
+    {% include "@FOSUser/Registration/register_content.html.twig" %}
 {% endblock fos_user_content %}

@@ -1,0 +1,184 @@
+{% extends 'investorbase.html.twig' %}
+
+{% block body %}
+
+<div class="container header">
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <h1>Mon portefeuille</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <nav class="col-lg-12 text-center">
+            <div class="nav nav-tabs d-flex justify-content-center mb-3" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-resume" role="tab" aria-controls="nav-home" aria-selected="true">Résumé</a>
+                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-fiscalite" role="tab" aria-controls="nav-profile" aria-selected="false">Fiscalité</a>
+                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-investir" role="tab" aria-controls="nav-contact" aria-selected="false">Investir</a>
+                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-debiter" role="tab" aria-controls="nav-contact" aria-selected="false">Débiter</a>
+            </div>
+        </nav>
+        <br>
+        <hr>
+        <div class="tab-content" id="nav-tabContent">
+
+
+            <div class="tab-pane fade show container active" id="nav-resume" role="tabpanel" aria-labelledby="nav-home-tab">
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <h3>Synthèse au {date d'ajourd'hui}</h3>
+                        <hr>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Patrimoine</h4>
+                        <hr>
+                        <p>Encours : X</p>
+                        <p>Disponible : X</p>
+                        <p>Total : X</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Taux de rentabilité</h4>
+                        <hr>
+                        <p>Encours : X</p>
+                        <p>Disponible : X</p>
+                        <p>Total : X</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Diversification</h4>
+                        <hr>
+                        <p>Nombres de projets investis : X</p>
+                        <p>Exposition maximum : X</p>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <h3>Activité de ces 3 derniers mois</h3>
+                        <hr>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Décembre 2018</h4>
+                        <hr>
+                        <p>Prété : X</p>
+                        <p>Gains : X</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Janvier 2019</h4>
+                        <hr>
+                        <p>Prété : X</p>
+                        <p>Gains : X</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Février 2019</h4>
+                        <hr>
+                        <p>Prété : X</p>
+                        <p>Gains : X</p>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <h3>Solde</h3>
+                        <hr>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Prêts d'investissement</h4>
+                        <hr>
+                        <p>Terminés : X</p>
+                        <p>En défaut : X</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Argent Investi</h4>
+                        <hr>
+                        <p>Montant total : X</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Gains</h4>
+                        <hr>
+                        <p>Intérêts : X</p>
+                        <p>Pertes : X</p>
+                        <p>Total : X</p>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <h3>Santé du portefeuille</h3>
+                        <hr>
+                        <p>Paiements en règle : X</p>
+                        <p>Retards de moins de 30 jours : X</p>
+                        <p>Retards de moins de 120 jours : X</p>
+                        <p>En défaut : X</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane container fade" id="nav-fiscalite" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>Fiscalité</h3>
+                        <hr>
+                        <p>? </p>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane container fade" id="nav-investir" role="tabpanel" aria-labelledby="nav-contact-tab">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>Investir dans un projet d'investissement</h3>
+                        <hr>
+                        <div class="col-sm-4">
+                            <a class="link-article">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h2>Projet n°X</h2>
+                                        <p class="card-text">Risque de X %</p>
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                                        </div>
+                                        <br>
+                                        <p> 250 € récoltés sur un projet d'investissement de 1000 €</p>
+
+                                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#projet">Investir</a>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane container fade" id="nav-debiter" role="tabpanel" aria-labelledby="nav-contact-tab">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>Débiter</h3>
+                        <hr>
+                        <p>Vous pouvez débiter tous les 6 mois.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PROJET -->
+<div class="modal fade" id="projet" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Investir sur ce projet</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <br>
+                Combien voulez-vous investir (en euros) ?
+                <input type="number" class="form-control" min="0" id="InputInvestisseur" placeholder="Montant en euro" oninput="this.value = Math.abs(this.value)">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Investir</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

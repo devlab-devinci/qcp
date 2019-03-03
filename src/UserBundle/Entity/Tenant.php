@@ -150,4 +150,294 @@ class Tenant
     }
 
 
+    /**
+     * @var string
+     */
+    private $lastname;
+
+    /**
+     * @var string
+     */
+    private $firstname;
+
+    /**
+     * @var \DateTime
+     */
+    private $birthday;
+
+    /**
+     * @var string
+     */
+    private $relation;
+
+    /**
+     * @var string
+     */
+    private $worktype;
+
+    /**
+     * @var string
+     */
+    private $child;
+
+    /**
+     * @var string
+     */
+    private $bail;
+
+    /**
+     * @var string
+     */
+    private $rent;
+
+    /**
+     * @var string
+     */
+    private $qsp;
+
+
+    /**
+     * Set lastname
+     *
+     * @param string $lastname
+     *
+     * @return Tenant
+     */
+    public function setLastname($lastname)
+    {
+        $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    /**
+     * Get lastname
+     *
+     * @return string
+     */
+    public function getLastname()
+    {
+        return $this->lastname;
+    }
+
+    /**
+     * Set firstname
+     *
+     * @param string $firstname
+     *
+     * @return Tenant
+     */
+    public function setFirstname($firstname)
+    {
+        $this->firstname = $firstname;
+
+        return $this;
+    }
+
+    /**
+     * Get firstname
+     *
+     * @return string
+     */
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
+
+    /**
+     * Set birthday
+     *
+     * @param \DateTime $birthday
+     *
+     * @return Tenant
+     */
+    public function setBirthday($birthday)
+    {
+        $this->birthday = $birthday;
+
+        return $this;
+    }
+
+    /**
+     * Get birthday
+     *
+     * @return \DateTime
+     */
+    public function getBirthday()
+    {
+        return $this->birthday;
+    }
+
+    /**
+     * Set relation
+     *
+     * @param string $relation
+     *
+     * @return Tenant
+     */
+    public function setRelation($relation)
+    {
+        $this->relation = $relation;
+
+        return $this;
+    }
+
+    /**
+     * Get relation
+     *
+     * @return string
+     */
+    public function getRelation()
+    {
+        return $this->relation;
+    }
+
+    /**
+     * Set worktype
+     *
+     * @param string $worktype
+     *
+     * @return Tenant
+     */
+    public function setWorktype($worktype)
+    {
+        $this->worktype = $worktype;
+
+        return $this;
+    }
+
+    /**
+     * Get worktype
+     *
+     * @return string
+     */
+    public function getWorktype()
+    {
+        return $this->worktype;
+    }
+
+    /**
+     * Set child
+     *
+     * @param string $child
+     *
+     * @return Tenant
+     */
+    public function setChild($child)
+    {
+        $this->child = $child;
+
+        return $this;
+    }
+
+    /**
+     * Get child
+     *
+     * @return string
+     */
+    public function getChild()
+    {
+        return $this->child;
+    }
+
+    /**
+     * Set bail
+     *
+     * @param string $bail
+     *
+     * @return Tenant
+     */
+    public function setBail($bail)
+    {
+        $this->bail = $bail;
+
+        return $this;
+    }
+
+    /**
+     * Get bail
+     *
+     * @return string
+     */
+    public function getBail()
+    {
+        return $this->bail;
+    }
+
+    /**
+     * Set rent
+     *
+     * @param string $rent
+     *
+     * @return Tenant
+     */
+    public function setRent($rent)
+    {
+        $this->rent = $rent;
+
+        return $this;
+    }
+
+    /**
+     * Get rent
+     *
+     * @return string
+     */
+    public function getRent()
+    {
+        return $this->rent;
+    }
+
+    /**
+     * Set qsp
+     *
+     * @param string $qsp
+     *
+     * @return Tenant
+     */
+    public function setQsp($qsp)
+    {
+        $this->qsp = $qsp;
+
+        return $this;
+    }
+
+    /**
+     * Get qsp
+     *
+     * @return string
+     */
+    public function getQsp()
+    {
+        return $this->qsp;
+    }
+    /**
+     * @var string
+     */
+    private $status;
+
+
+    /**
+     * Set status
+     *
+     * @param string $status
+     *
+     * @return Tenant
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
 }

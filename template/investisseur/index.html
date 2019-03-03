@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/yeti/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+</head>
+<body class="greybg">
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <a class="navbar-brand" href="index.html">
+        <img src="../img/QSP.png" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor03">
+        <ul class="navbar-nav mr-auto">
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Tableau de bord</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="portefeuille.html">Portefeuille</a>
+            </li>
+
+            <li class="nav-item none-on-high">
+                <a class="nav-link" href="../index.html">Déconnexion</a>
+            </li>
+
+        </ul>
+        <div class="right none-on-low">
+            <a class="btn_c_hp dropdown-toggle" href="#" id="dropdownMenuLink" role="button" data-target="#profileDrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nom Prénom
+            </a>
+
+            <a class="#" ref="#" role="button" id="dropdownMenu" data-toggle="dropdown" data-target="#notifDrop"aria-haspopup="true" aria-expanded="false"> 
+               <svg class="bell_c" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M15.137 3.945c-.644-.374-1.042-1.07-1.041-1.82v-.003c.001-1.172-.938-2.122-2.096-2.122s-2.097.95-2.097 2.122v.003c.001.751-.396 1.446-1.041 1.82-4.667 2.712-1.985 11.715-6.862 13.306v1.749h20v-1.749c-4.877-1.591-2.195-10.594-6.863-13.306zm-3.137-2.945c.552 0 1 .449 1 1 0 .552-.448 1-1 1s-1-.448-1-1c0-.551.448-1 1-1zm3 20c0 1.598-1.392 3-2.971 3s-3.029-1.402-3.029-3h6z"/></svg>
+           </a>
+
+
+
+           <div id="profileDrop" class="dropdown-menu inherit-left" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="../index.html">Déconnexion</a>
+        </div>
+
+        <div id="notifDrop" class="dropdown-menu inherit-left" aria-labelledby="dropdownMenuLink">
+            <span class="dropdown-item">Notification</span>
+        </div>
+
+    </div>
+</div>
+</nav>
+
+<div class="container header">
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <h1>Tableau de bord</h1>
+        </div>
+    </div>
+
+    <div class="row">
+
+     <div class="col-md-4 col-sm-12">
+        <div class="bloc-droite bone">
+            <a href="#" id="closeBone"><svg id="svgBone" class="topRightAbsolute" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z"/></svg></a>
+            <div class="col-md-12">
+                <form>
+
+                    <h2 class="text-center">Simulateur</h2>
+                    <div id="displayBone">
+                        <div class="form-group">
+                            <input type="number" class="form-control" min="0" id="InputInvestisseur" placeholder="Montant en euro" oninput="this.value = Math.abs(this.value)">
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+                                <em>Gains estimés :</em>
+                            </div>
+                            <div class="centrer-bloc">
+                                <span class="before_siminv">Jusqu'à</span><span class="h1 simu_inv bold left">0</span><div><span class="euro">€</span><br>par<br>mois</div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <em>Gain sur montant investi : 4~8% selon le risque du projet</em>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="bloc-droite btwo">
+            <a href="#" id="closeBtwo"><svg id="svgBtwo" class="topRightAbsolute" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z"/></svg></a>
+            <h2 class="text-center">Vos documents</h2>
+            <div id="displayBtwo">
+               <ul>
+                <a href="" data-toggle="modal" data-target="#PJPiece"><li>Pièce d'identité</li></a>
+                <a href="" data-toggle="modal" data-target="#PJJustificatif"><li>Justificatif de domicile</li></a>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="col-sm-8">
+    <div class="bloc-gauche">
+     <h3>Synthèse</h3>
+     <hr>
+     <p>Vous avez investi dans X projets d'investissement.</p>
+     <a class="btn btn-primary" href="portefeuille.html">Observer vos investissements à la loupe</a>
+ </div>
+</div>
+</div>
+
+</div>
+
+
+<!-- Piece d'identité -->
+<div class="modal fade" id="PJPiece" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Pièce d'identité</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <div class="modal-body">
+        Une carte nationale d'identité recto/verso, en couleurs et en cours de validité, ou un passeport en couleurs et en cours de validité.
+        <br>
+        <strong>En format PDF</strong>
+        <br><br>
+        <input type="file" class="btn btn-secondary" id="exampleFormControlFile1">
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary">Voir le fichier joint</button>
+        <button type="button" class="btn btn-primary">Envoyer un nouveau document</button>
+    </div>
+</div>
+</div>
+</div>
+
+<!-- Justificatif-->
+<div class="modal fade" id="PJJustificatif" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Justificatif de domicile</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <div class="modal-body">
+       Soit une facture de téléphonie mobile, une facture d'un fournisseur d'accès internet, une quittance de loyer, une facture de téléphonie fixe, une quittance d'électricité ou de gaz, une quittance d'eau ou une attestation délivrée par la commune de résidence
+       <br>
+       <strong>En format PDF</strong>
+       <br><br>
+       <input type="file" class="btn btn-secondary" id="exampleFormControlFile1">
+   </div>
+   <div class="modal-footer">
+    <button type="button" class="btn btn-secondary">Voir le fichier joint</button>
+    <button type="button" class="btn btn-primary">Envoyer un nouveau document</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Footer -->
+<footer class="page-footer font-small pt-4 mt-4">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+        <a href="#"> QSP</a>
+    </div>
+    <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="../js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
