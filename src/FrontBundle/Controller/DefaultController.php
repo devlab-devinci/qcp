@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Security;
 use UserBundle\Entity\Investor;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
@@ -23,12 +23,6 @@ class DefaultController extends Controller
     {
         return $this->render('FrontBundle:Default:index.html.twig');
     }
-
-    public function faqAction()
-    {
-        return $this->render('FrontBundle:Default:faq.html.twig');
-    }
-
 
     public function qsnAction()
     {
@@ -99,6 +93,11 @@ class DefaultController extends Controller
     public function tenantHomeAction()
     {
         return $this->render('FrontBundle:Tenant:index.html.twig');
+    }
+
+    public function tenantMapAction()
+    {
+        return $this->render('FrontBundle:Tenant:carte.html.twig');
     }
 
     public function investoreHomeAction()

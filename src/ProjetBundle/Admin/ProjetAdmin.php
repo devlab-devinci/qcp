@@ -19,11 +19,12 @@ class ProjetAdmin extends AbstractAdmin
         $formMapper->add('name', TextType::class);
         $formMapper->add('description', TextareaType::class);
         $formMapper->add('tenant', EntityType::class, array(
+            'class' => Tenant::class));
+        $formMapper->add('tenant', EntityType::class, array(
             'class' => Tenant::class,
             'query_builder' => function (EntityRepository $er) {
                 return $er->createQueryBuilder('t')
-                    ->where('t.projet = :projet')
-                    ->setParameter('projet', null);
+                    ->where('t.projet IS NULL');
             }
         ));
 
