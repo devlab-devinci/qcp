@@ -80,5 +80,12 @@ class Faq
     {
         return $this->answer;
     }
+
+    /*
+    public function toString()
+    {
+        return (string)$this->getAnswer();
+    }
+    */
 }
 
