@@ -183,4 +183,9 @@ class DefaultController extends Controller
     {
         return $this->render('FrontBundle:Investor:index.html.twig');
     }
+
+    public function investorePortefeuillesHomeAction()
+    {
+        return $this->render('FrontBundle:Investor:portefeuilles.html.twig');
+    }
 }

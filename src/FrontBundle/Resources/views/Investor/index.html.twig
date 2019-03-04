@@ -1,1 +1,113 @@
-tu es investor
+{% extends 'investorbase.html.twig' %}
+
+{% block body %}
+<div class="container header">
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <h1>Tableau de bord</h1>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-4 col-sm-12">
+            <div class="bloc-droite bone">
+                <a href="#" id="closeBone"><svg id="svgBone" class="topRightAbsolute" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z"/></svg></a>
+                <div class="col-md-12">
+                    <form>
+
+                        <h2 class="text-center">Simulateur</h2>
+                        <div id="displayBone">
+                            <div class="form-group">
+                                <input type="number" class="form-control" min="0" id="InputInvestisseur" placeholder="Montant en euro" oninput="this.value = Math.abs(this.value)">
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 text-center">
+                                    <em>Gains estimés :</em>
+                                </div>
+                                <div class="centrer-bloc">
+                                    <span class="before_siminv">Jusqu'à</span><span class="h1 simu_inv bold left">0</span><div><span class="euro">€</span><br>par<br>mois</div>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <em>Gain sur montant investi : 4~8% selon le risque du projet</em>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="bloc-droite btwo">
+                <a href="#" id="closeBtwo"><svg id="svgBtwo" class="topRightAbsolute" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z"/></svg></a>
+                <h2 class="text-center">Vos documents</h2>
+                <div id="displayBtwo">
+                    <ul>
+                        <a href="" data-toggle="modal" data-target="#PJPiece"><li>Pièce d'identité</li></a>
+                        <a href="" data-toggle="modal" data-target="#PJJustificatif"><li>Justificatif de domicile</li></a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="bloc-gauche">
+                <h3>Synthèse</h3>
+                <hr>
+                <p>Vous avez investi dans X projets d'investissement.</p>
+                <a class="btn btn-primary" href="portefeuille.html">Observer vos investissements à la loupe</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- Piece d'identité -->
+<div class="modal fade" id="PJPiece" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Pièce d'identité</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Une carte nationale d'identité recto/verso, en couleurs et en cours de validité, ou un passeport en couleurs et en cours de validité.
+                <br>
+                <strong>En format PDF</strong>
+                <br><br>
+                <input type="file" class="btn btn-secondary" id="exampleFormControlFile1">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary">Voir le fichier joint</button>
+                <button type="button" class="btn btn-primary">Envoyer un nouveau document</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Justificatif-->
+<div class="modal fade" id="PJJustificatif" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Justificatif de domicile</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Soit une facture de téléphonie mobile, une facture d'un fournisseur d'accès internet, une quittance de loyer, une facture de téléphonie fixe, une quittance d'électricité ou de gaz, une quittance d'eau ou une attestation délivrée par la commune de résidence
+                <br>
+                <strong>En format PDF</strong>
+                <br><br>
+                <input type="file" class="btn btn-secondary" id="exampleFormControlFile1">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary">Voir le fichier joint</button>
+                <button type="button" class="btn btn-primary">Envoyer un nouveau document</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

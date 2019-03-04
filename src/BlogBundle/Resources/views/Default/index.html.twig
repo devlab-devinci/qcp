@@ -16,74 +16,19 @@
         <div class="col-sm-12 mb-4">
             <h2>Nos derniers articles</h2>
         </div>
-        <div class="col-sm-4">
-            <a href="{{ path('blog_singlepage', {'slug': 'sample'}) }}" class="link-article">
-                <div class="card">
-                    <p class="lire">Lire l'article</p>
-                    <img class="card-img-top" src="http://resize-football.ladmedia.fr/r/920,/crop/920,512/img/images/media/images/n-golo-kante-tout-sourire-devant-la-presse/13001494-1-fre-FR/N-Golo-Kante-tout-sourire-devant-la-presse..jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        {% for article in articles %}
+            <div class="col-sm-4">
+                <a href="{{ path('blog_singlepage', {slug: article.id}) }}" class="link-article">
+                    <div class="card">
+                        <p class="lire">Lire l'article</p>
+                        <img class="card-img-top" src="{{ article.banner }}" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">{{ article.title }}</p>
+                        </div>
                     </div>
-                </div>
-            </a>
-        </div>
-
-        <div class="col-sm-4">
-            <a href="{{ path('blog_singlepage', {'slug': 'sample'}) }}" class="link-article">
-                <div class="card">
-                    <p class="lire">Lire l'article</p>
-                    <img class="card-img-top" src="http://resize-football.ladmedia.fr/r/920,/crop/920,512/img/images/media/images/n-golo-kante-tout-sourire-devant-la-presse/13001494-1-fre-FR/N-Golo-Kante-tout-sourire-devant-la-presse..jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-sm-4">
-            <a href="{{ path('blog_singlepage', {'slug': 'sample'}) }}" class="link-article">
-                <div class="card">
-                    <p class="lire">Lire l'article</p>
-                    <img class="card-img-top" src="http://resize-football.ladmedia.fr/r/920,/crop/920,512/img/images/media/images/n-golo-kante-tout-sourire-devant-la-presse/13001494-1-fre-FR/N-Golo-Kante-tout-sourire-devant-la-presse..jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-sm-4">
-            <a href="{{ path('blog_singlepage', {'slug': 'sample'}) }}" class="link-article">
-                <div class="card">
-                    <p class="lire">Lire l'article</p>
-                    <img class="card-img-top" src="http://resize-football.ladmedia.fr/r/920,/crop/920,512/img/images/media/images/n-golo-kante-tout-sourire-devant-la-presse/13001494-1-fre-FR/N-Golo-Kante-tout-sourire-devant-la-presse..jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-sm-4">
-            <a href="{{ path('blog_singlepage', {'slug': 'sample'}) }}" class="link-article">
-                <div class="card">
-                    <p class="lire">Lire l'article</p>
-                    <img class="card-img-top" src="http://resize-football.ladmedia.fr/r/920,/crop/920,512/img/images/media/images/n-golo-kante-tout-sourire-devant-la-presse/13001494-1-fre-FR/N-Golo-Kante-tout-sourire-devant-la-presse..jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-sm-4">
-            <a href="{{ path('blog_singlepage', {'slug': 'sample'}) }}" class="link-article">
-                <div class="card">
-                    <p class="lire">Lire l'article</p>
-                    <img class="card-img-top" src="http://resize-football.ladmedia.fr/r/920,/crop/920,512/img/images/media/images/n-golo-kante-tout-sourire-devant-la-presse/13001494-1-fre-FR/N-Golo-Kante-tout-sourire-devant-la-presse..jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-
+                </a>
+            </div>
+        {% endfor %}
     </div>
 </div>
 

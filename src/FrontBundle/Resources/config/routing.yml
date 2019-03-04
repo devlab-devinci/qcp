@@ -14,6 +14,10 @@ front_investor_homepage:
     path:     /investor
     defaults: { _controller: FrontBundle:Default:investoreHome }
 
+front_investor_portefeuillespage:
+    path:     /investor/portefeuilles
+    defaults: { _controller: FrontBundle:Default:investorePortefeuillesHome }
+
 front_tenant_homepage:
     path:     /tenant
     defaults: { _controller: FrontBundle:Default:tenantHome }
