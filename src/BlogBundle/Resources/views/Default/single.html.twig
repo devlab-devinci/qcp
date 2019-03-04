@@ -6,15 +6,14 @@
 <div class="container-fluid">
     <div class="row header-standard">
         <div class="col-sm-12">
-            <h1>Titre de l'article</h1>
+            <h1>{{ article.title }}</h1>
         </div>
     </div>
 </div>
+<img class="card-img-top" src="{{ article.banner }}" alt="Card image cap">
 
 <div class="container mt-5 mb-5 text-center">
-    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, eligendi, dignissimos. Laudantium fugit excepturi reiciendis laboriosam voluptate sapiente nam culpa, eaque ratione nemo nesciunt explicabo minus dolor delectus ipsa, iste!</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita magni voluptas repellat doloremque ipsam delectus natus nihil unde dicta rem dolores quisquam commodi dolorum quam, architecto. Id quia beatae, nihil.</p> <br>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis laudantium repellat cumque aperiam, voluptatum optio maxime esse sit quo, distinctio veritatis temporibus commodi excepturi, ducimus deserunt quibusdam accusantium voluptatibus sequi? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis laudantium repellat cumque aperiam, voluptatum optio maxime esse sit quo, distinctio veritatis temporibus commodi excepturi, ducimus deserunt quibusdam accusantium voluptatibus sequi? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis laudantium repellat cumque aperiam, voluptatum optio maxime esse sit quo, distinctio veritatis temporibus commodi excepturi, ducimus deserunt quibusdam accusantium voluptatibus sequi?</p>
+    <p>article.corps: {{ article.corps }}</p>
 </div>
 
 {% endblock %}
