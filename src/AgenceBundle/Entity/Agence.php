@@ -30,7 +30,7 @@ class Agence
     /**
      * @var string
      */
-    private $long;
+    private $longitude;
 
     /**
      * @var string
@@ -133,17 +133,17 @@ class Agence
     /**
      * @return string
      */
-    public function getLong()
+    public function getLongitude()
     {
-        return $this->long;
+        return $this->longitude;
     }
 
     /**
-     * @param string $long
+     * @param string $longitude
      */
-    public function setLong($long)
+    public function setLongitude($longitude)
     {
-        $this->long = $long;
+        $this->longitude = $longitude;
     }
 
     /**

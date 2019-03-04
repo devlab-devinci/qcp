@@ -2,24 +2,78 @@
 
 {% block body %}
 
-<div class="container-fluid">
-    <div class="row header-standard">
-        <div class="col-sm-12">
-            <h1>Qui sommes-nous ?</h1>
+    <!-- HEADER -->
+
+    <div class="container-fluid">
+        <div class="row header-standard">
+            <div class="col-sm-12">
+                <h1>Qui sommes-nous ?</h1>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="container mt-5 mb-5 text-center">
-    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, eligendi, dignissimos. Laudantium fugit excepturi reiciendis laboriosam voluptate sapiente nam culpa, eaque ratione nemo nesciunt explicabo minus dolor delectus ipsa, iste!</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita magni voluptas repellat doloremque ipsam delectus natus nihil unde dicta rem dolores quisquam commodi dolorum quam, architecto. Id quia beatae, nihil.</p> <br>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis laudantium repellat cumque aperiam, voluptatum optio maxime esse sit quo, distinctio veritatis temporibus commodi excepturi, ducimus deserunt quibusdam accusantium voluptatibus sequi? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis laudantium repellat cumque aperiam, voluptatum optio maxime esse sit quo, distinctio veritatis temporibus commodi excepturi, ducimus deserunt quibusdam accusantium voluptatibus sequi? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis laudantium repellat cumque aperiam, voluptatum optio maxime esse sit quo, distinctio veritatis temporibus commodi excepturi, ducimus deserunt quibusdam accusantium voluptatibus sequi?</p>
-</div>
+    <div class="container mt-5 mb-5 text-center">
+        <div class="row">
+            <p>QSP met la finance au service de l’inclusion sociétale à travers un système d’investissement participatif unique.
+                L’objectif est de faciliter l’accès au logement pour les locataires qui font faces à des problèmes de solvabilité. </p>
 
-<div class=" mt-5 mb-5 text-center">
-    <h2> Nous contacter ?</h2>
+            <p>50 % des français vivants en zones urbaines tendues ont rencontré des difficultés pour se loger. Pour cause les assureurs et établissements de crédits établissent des critères de solvabilité trop restrictifs.</p>
 
-    <p class="text-center">Insérer un formulaire</p>
-</div>
+            <p>QSP a ainsi créé la première plateforme de crowdfunding pour la garantie des loyers. Nous utilisons l’épargne des français afin de garantir des mois de loyers impayés. </p>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-4">
+                <img class="grid3img" src="{{ asset('assets/images/nathan.jpeg') }}" alt=""><br>
+                <strong>Nathan Prosperin</strong>
+            </div>
+            <div class="col-md-4">
+                <img class="grid3img" src="{{ asset('assets/images/hugo.jpeg') }}" alt=""><br>
+                <strong>Hugo Schnyder</strong>
+            </div>
+            <div class="col-md-4">
+                <img class="grid3img" src="{{ asset('assets/images/ismael.jpeg') }}" alt=""><br>
+                <strong>Ismael Quiacu</strong>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="container mt-5 mb-5 text-center">
+        <h2>Les partenaires</h2>
+        <p>Ils nous soutiennent</p>
+        <div class="row">
+            <div class="col-md-4 justify-content-center align-items-center d-flex">
+                <img class="partenaires" src="{{ asset('assets/images/leswave.png') }}" alt="">
+            </div>
+            <div class="col-md-4 justify-content-center align-items-center d-flex">
+                <img class="partenaires" src="{{ asset('assets/images/parisco.png') }}" alt="">
+            </div>
+            <div class="col-md-4 justify-content-center align-items-center d-flex">
+                <img class="partenaires" src="{{ asset('assets/images/DIRECCTE.jpg') }}" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class=" mt-5 mb-5 text-center">
+        <h2> Nous contacter ?</h2>
+
+        <a href="{{ path('front_contact') }}" class="btn btn-primary mt-3">Accéder au formulaire de contact</a>
+        <br>
+        <br>
+
+
+        <a target="_blank" href="mailto:qsp.project.contact@gmail.com">qsp.project.contact@gmail.com</a>
+        <p>
+            QSP
+            <br>
+            Swave - Grande Arche Paroi Nord (19ème étage)
+            <br>
+            1 parvis de la Défense
+            <br>
+            92800 Puteaux
+        </p>
+
+    </div>
 
 {% endblock %}
