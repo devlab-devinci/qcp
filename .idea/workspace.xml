@@ -2,10 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a859457-7b3a-4512-b5b9-7f7b60a47ea8" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BlogBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BlogBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BlogBundle/Resources/views/Default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/BlogBundle/Resources/views/Default/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BlogBundle/Resources/views/Default/single.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/BlogBundle/Resources/views/Default/single.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FrontBundle/EventListener/FileTenantUploadListener.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FrontBundle/Form/TenantType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FrontBundle/Resources/views/Default/contact.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FrontBundle/Service/FileUploader.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/assets/images/DIRECCTE.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/assets/images/hugo.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/assets/images/ismael.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/assets/images/leswave.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/assets/images/nathan.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/assets/images/parisco.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/corps.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/corps.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/services.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/services.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AgenceBundle/Admin/AgenceAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AgenceBundle/Admin/AgenceAdmin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AgenceBundle/Entity/Agence.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AgenceBundle/Entity/Agence.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AgenceBundle/Resources/config/doctrine/Agence.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/AgenceBundle/Resources/config/doctrine/Agence.orm.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FaqBundle/Entity/Faq.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/FaqBundle/Entity/Faq.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FrontBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrontBundle/Controller/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FrontBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrontBundle/Resources/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FrontBundle/Resources/views/Default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrontBundle/Resources/views/Default/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FrontBundle/Resources/views/Default/qsn.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrontBundle/Resources/views/Default/qsn.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FrontBundle/Resources/views/Tenant/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrontBundle/Resources/views/Tenant/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserBundle/Entity/Tenant.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserBundle/Entity/Tenant.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserBundle/Resources/config/doctrine/Tenant.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserBundle/Resources/config/doctrine/Tenant.orm.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/map.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/assets/js/map.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,11 +42,20 @@
     <splitter split-orientation="horizontal" split-proportion="0.6269262">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/BlogBundle/Resources/views/Default/single.html.twig">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="255">
                   <caret line="15" column="45" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="376">
+                  <caret line="87" selection-start-line="87" selection-end-line="87" />
                 </state>
               </provider>
             </entry>
@@ -139,7 +170,6 @@
         <option value="$PROJECT_DIR$/app/Resources/views/corps.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Registration/register_content.html.twig" />
         <option value="$PROJECT_DIR$/src/UserBundle/Controller/RegistrationController.php" />
-        <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/src/FrontBundle/Resources/views/Investor/index.html.twig" />
         <option value="$PROJECT_DIR$/src/FrontBundle/Resources/views/Investor/portefeuille.html.twig" />
         <option value="$PROJECT_DIR$/src/FrontBundle/Resources/config/routing.yml" />
@@ -148,6 +178,7 @@
         <option value="$PROJECT_DIR$/src/BlogBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/src/BlogBundle/Resources/views/Default/index.html.twig" />
         <option value="$PROJECT_DIR$/src/BlogBundle/Resources/views/Default/single.html.twig" />
+        <option value="$PROJECT_DIR$/app/config/config.yml" />
       </list>
     </option>
   </component>
@@ -420,12 +451,12 @@
       <workItem from="1548966906950" duration="858000" />
       <workItem from="1550317479932" duration="15649000" />
       <workItem from="1550438343371" duration="80000" />
-      <workItem from="1551615849334" duration="13379000" />
+      <workItem from="1551615849334" duration="13993000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62842000" />
+    <option name="totallyTimeSpent" value="63456000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1536" height="864" extended-state="0" />
@@ -524,13 +555,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1683">
           <caret line="99" column="60" selection-start-line="99" selection-start-column="60" selection-end-line="99" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="84" selection-start-line="84" selection-end-line="91" />
         </state>
       </provider>
     </entry>
@@ -763,6 +787,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="45" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="87" selection-start-line="87" selection-end-line="87" />
         </state>
       </provider>
     </entry>

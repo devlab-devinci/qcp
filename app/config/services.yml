@@ -1,6 +1,8 @@
 # Learn more about services, parameters and containers at
 # https://symfony.com/doc/current/service_container.html
+
 parameters:
+    file_tenant_directory: '%kernel.project_dir%/web/uploads/tenant'
     #parameter_name: value
 
 services:
@@ -66,3 +68,15 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: "Gestion", label: Les projets }
         public: true
+
+    FrontBundle\Service\FileUploader:
+        arguments:
+            $targetDirectory: '%file_tenant_directory%'
+
+    FrontBundle\EventListener\FileTenantUploadListener:
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate }
+#            - { name: doctrine.event_listener, event: postLoad }
+        arguments:
+            $targetDirectory: '%file_tenant_directory%'

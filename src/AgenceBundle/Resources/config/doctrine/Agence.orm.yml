@@ -17,14 +17,16 @@ AgenceBundle\Entity\Agence:
         thumbnail:
             type: string
             length: 255
-        long:
+        longitude:
             type: string
             length: 255
         lat:
             type: string
             length: 255
         address:
-            type: text
+            type: string
+            length: 255
         site:
-            type: text
+            type: string
+            length: 255
     lifecycleCallbacks: {  }
