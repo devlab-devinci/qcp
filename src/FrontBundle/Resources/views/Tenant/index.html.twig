@@ -134,7 +134,7 @@
                     {{ form_widget(form.docPI, {'attr': {'class': 'btn btn-secondary'}}) }}
                 </div>
                 <div class="modal-footer">
-                    <a href="{{ app.user.tenant.docPI }}" target="_blank" class="btn btn-secondary">Voir le fichiers joint</a>
+                    <a href="{{ asset(pj.docPI) }}" target="_blank" class="btn btn-secondary">Voir le fichiers joint</a>
                     {#<button type="button" class="btn btn-secondary">Voir le fichier joint</button>#}
                     {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
                 </div>
@@ -165,6 +165,12 @@
 
                 </div>
                 <div class="modal-footer">
+                    <div style="display:flex">
+                        <a href="{{ asset(pj.docReleveUn) }}" target="_blank" class="btn btn-secondary">Releve Un</a>
+                        <a href="{{ asset(pj.docReleveDeux) }}" target="_blank" class="btn btn-secondary">Releve Deux</a>
+                        <a href="{{ asset(pj.docReleveTrois) }}" target="_blank" class="btn btn-secondary">Releve Trois</a>
+                    </div>
+
                     <button type="button" class="btn btn-secondary">Voir les fichiers joints</button>
                     {{ form_widget(form.save2, {'attr': {'class': 'btn btn-primary'}}) }}
                 </div>
@@ -189,7 +195,7 @@
                     {{ form_widget(form.docJustifie, {'attr': {'class': 'btn btn-secondary'}}) }}
                 </div>
                 <div class="modal-footer">
-                    <a href="{{ app.user.tenant.docJustifie }}" target="_blank" class="btn btn-secondary">Voir le fichiers joint</a>
+                    <a href="{{ asset(pj.docJustifie) }}" target="_blank" class="btn btn-secondary">Voir le fichiers joint</a>
                     {#<button type="button" class="btn btn-secondary">Voir le fichier joint</button>#}
                     {{ form_widget(form.save3, {'attr': {'class': 'btn btn-primary'}}) }}
                 </div>

@@ -165,12 +165,19 @@ class DefaultController extends Controller
         }
 
         $nbReleve = 0;
-        if ($tenant->getDocReleveUn() != null) { $nbReleve++; }
-        if ($tenant->getDocReleveDeux() != null) { $nbReleve++; }
-        if ($tenant->getDocReleveTrois() != null) { $nbReleve++; }
+        $pjs = array();
+        $pjs['docPI'] = preg_replace('/.+?(?=uploads)/','', $tenant->getDocPI());
+        $pjs['docJustifie'] = preg_replace('/.+?(?=uploads)/','', $tenant->getDocJustifie());
+        $pjs['docReleveUn'] = preg_replace('/.+?(?=uploads)/','', $tenant->getDocReleveUn());
+        $pjs['docReleveDeux'] = preg_replace('/.+?(?=uploads)/','', $tenant->getDocReleveDeux());
+        $pjs['docReleveTrois'] = preg_replace('/.+?(?=uploads)/','', $tenant->getDocReleveTrois());
+        if ($tenant->getDocReleveUn() != null) { $nbReleve++;}
+        if ($tenant->getDocReleveDeux() != null) { $nbReleve++;}
+        if ($tenant->getDocReleveTrois() != null) { $nbReleve++;}
         return $this->render('FrontBundle:Tenant:index.html.twig', [
             'form' => $form->createView(),
-            'releve' => $nbReleve
+            'releve' => $nbReleve,
+            'pj' => $pjs
         ]);
     }
 
