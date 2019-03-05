@@ -38,7 +38,23 @@
                     <a class="nav-link" href="{{ path('front_contact') }}">Nous contacter</a>
                 </li>
 
-                {% if app.user is null %}
+                {% if app.user.username is defined %}
+                    {% if is_granted('ROLE_TENANT')  %}
+                        <li class="nav-item none-on-high">
+                            <a class="nav-link" href="{{ path('front_tenant_homepage') }}">Tableau de bord</a>
+                        </li>
+                    {% endif %}
+                    {% if is_granted('ROLE_INVESTOR') %}
+                        <li class="nav-item none-on-high">
+                            <a class="nav-link" href="{{ path('front_investor_homepage') }}">Tableau de bord</a>
+                        </li>
+                    {% endif %}
+
+                    <li class="nav-item none-on-high">
+                        <a class="nav-link" href="{{ path('fos_user_registration_register') }}">Se déconnecter</a>
+                    </li>
+
+                {% else %}
 
                     <li class="nav-item none-on-high">
                         <a class="nav-link" href="{{ path('fos_user_registration_register') }}">S'inscrire</a>
@@ -47,17 +63,23 @@
                         <a class="nav-link" href="{{ path('fos_user_security_login') }}">Se connecter</a>
                     </li>
 
-                {% else %}
-
-                    <li class="nav-item none-on-high">
-                        <a class="nav-link" href="{{ path('fos_user_registration_register') }}">Tableau de bord</a>
-                    </li>
-
                 {% endif %}
             </ul>
             <div class="right none-on-low">
-                <a class="btn_c" href="{{ path('fos_user_registration_register') }}">S'inscrire</a>
-                <a class="btn_c" href="{{ path('fos_user_security_login') }}">Se connecter</a>
+
+                {% if app.user.username is defined %}
+                    {% if is_granted('ROLE_TENANT')  %}
+                        <a class="btn_c" href="{{ path('front_tenant_homepage') }}">Tableau de bord</a>
+                    {% endif %}
+
+                    {% if is_granted('ROLE_INVESTOR')  %}
+                        <a class="btn_c" href="{{ path('front_investor_homepage') }}">Tableau de bord</a>
+                    {% endif %}
+                    <a class="btn_c" href="{{ path('fos_user_security_logout') }}">Se déconnecter</a>
+                {% else %}
+                    <a class="btn_c" href="{{ path('fos_user_registration_register') }}">S'inscrire</a>
+                    <a class="btn_c" href="{{ path('fos_user_security_login') }}">Se connecter</a>
+                {% endif %}
             </div>
         </div>
     </nav>
